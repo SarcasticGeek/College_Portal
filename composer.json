@@ -1,0 +1,13 @@
+{
+    "name": "essam/college_portal",
+    "description": "Native PHP project based on database course.",
+    "license": "GNU 0.2 GENERAL PUBLIC LICENSE",
+    "authors": [
+        {
+            "name": "Mohamed Essam Fathalla",
+            "email": "mohamedessamfathalla@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
