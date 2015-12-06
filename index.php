@@ -1,5 +1,5 @@
 <?php 
-include 'env.php';
-echo "Hello PHP";
-echo getenv('DB_NAME');
+include 'dbconnect.php';
+header("Location: app");
+exit();
 ?>
