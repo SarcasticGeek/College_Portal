@@ -156,7 +156,7 @@ CREATE TABLE IF NOT EXISTS `respond` (
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `student_id` int(10) unsigned NOT NULL,
   `stuff_id` int(10) unsigned NOT NULL,
-  PRIMARY KEY (`stuff_id`),
+  PRIMARY KEY (`student_id`,`stuff_id`,`msg`,`created_at`,`updated_at`),
   KEY `respond_student_id_index` (`student_id`),
   KEY `respond_stuff_id_index` (`stuff_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
@@ -174,7 +174,7 @@ CREATE TABLE IF NOT EXISTS `send` (
   `student_id` int(10) unsigned NOT NULL,
   `stuff_id` int(10) unsigned NOT NULL,
   PRIMARY KEY (`student_id`),
-  KEY `send_student_id_index` (`student_id`),
+  KEY `send_student_id_index` (`student_id`,`stuff_id`,`msg`,`created_at`,`updated_at`),
   KEY `send_stuff_id_index` (`stuff_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
