@@ -3,7 +3,7 @@
 $dbhost = "localhost";
 $dbuser = "root";
 $dbpass = "";
-$dbname = "portal";
+$dbname = "college_portal";
 $connection = mysqli_connect($dbhost,$dbuser,$dbpass,$dbname);
 
 if (mysql_errno())
@@ -190,7 +190,7 @@ if(isset($_POST['btn-login']))
       {
         $student_id = $linex['id'];
         echo "student id is ".$student_id;
-         //header('Location: index.php');
+        header('Location: studenthome.php');
       }
     }
     else
