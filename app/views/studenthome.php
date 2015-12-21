@@ -11,10 +11,43 @@
 			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
 		<link href="assets/css/styles.css" rel="stylesheet">
-	</head>
-	<body>
+    <link  rel="stylesheet"type="text/css"href= "assets/css/scrolling-nav.css">
+  
+  <style>
+  .navbar-nav {
+    margin-top: -20px;
+    margin-left: 30px;
+  }
+  .navbar-brand.page-scroll{
+    margin-top: -13px;
+  }
+  .navbar-nav.navbar-right ul
+  {
+  position: absolute;z-index: -999;
 
-<nav class="navbar navbar-default">
+  }
+  .navbar-default.navbar-fixed-top
+  {
+
+     
+  }
+  .alittlebitdown
+  {
+      width: 850px;
+      margin-left: 200px;
+      z-index: 1000;
+      margin-top: 70px;
+  }
+  .dropdown-menu
+  {
+    z-index: 1050;
+  }
+
+  </style>
+  </head>
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+<div id="hidden_form_container" style="display:none;"></div>
+<nav class="navbar navbar-default navbar-fixed-top">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -35,11 +68,9 @@
         <li class="active"><a href="#">Home <span class="sr-only">(current)</span></a></li>
         <li><a href="#">profile</a></li>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Courses <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Course1</a></li>
-            <li><a href="#">Course2</a></li>
-            <li><a href="#">Course3</a></li>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" >Courses <span class="caret"></span></a>
+          <ul class="dropdown-menu" id ="coursesMenu">
+            
             
           </ul>
         </li>
@@ -47,17 +78,111 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-<div class="container">
- 
-  <div class="text-center">
+    <nav class="navbar navbar-default navbar-fixed-top alittlebitdown" role="navigation"> 
+        <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="page-scroll" href="#page-top">Resources</a>
+            </div>
 
-    <h1>Hello</h1>
-    <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
-  </div>
- 
-</div><!-- /.container -->
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav">
+                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                    <li class="hidden">
+                        <a class="page-scroll" href="#page-top">Resources</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#deliverables">Deliverables</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#messages">Messages</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        
+        <!-- /.container -->
+    </div>
+    </nav>
+
+    <section id="intro" class="intro-section">
+        <div class="container">
+        
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1>Resources For All Courses</h1>
+                      <a class="btn btn-info page-scroll" href="#deliverables">Next</a>
+                </div>
+            </div>
+        </div>
+        
+    </section>
+    <section id="deliverables" class="deliverables-section">
+        <div class="container">
+        
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1>Deliverables</h1>
+                      <a class="btn btn-info page-scroll" href="#messages">Next</a>
+                </div>
+            </div>
+        </div>
+        
+    </section>
+    <section id="messages" class="messages-section">
+        <div class="container">
+        
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1>Messages from TAs</h1>
+                      <a class="btn btn-info page-scroll" href="#page-top">Next</a>
+                </div>
+            </div>
+        </div>
+        
+    </section>
 	<!-- script references -->
-		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
-		<script src="assets/js/bootstrap.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+	<script src="assets/js/bootstrap.min.js"></script>
+  <script type="text/javascript"src="assets/js/jquery.js'"></script>
+  <script type="text/javascript"src="assets/js/jquery.easing.min.js"></script>
+  <script type="text/javascript"src="assets/js/scrolling-nav.js"></script>
+    <script type="text/javascript" src="assets/js/maintainscroll.jquery.min.js"></script>
+  <script >
+  var student_id = 1;
+  var select = document.getElementById("coursesMenu");
+  $.ajax({
+        url: "http://localhost/college_portal/app/models/pullcourses.php",
+        type: "post",
+        data: {student_id:student_id},
+        dataType : 'json',
+        success: function(data){ // trigger when request was successfull
+        //alert(data.querydata.courses);
+        for (i = 0; i < data.querydata.courses.length; i++)
+          {
+            console.log(data.querydata.courses[i].course_code_number);
+            var li = document.createElement("li");
+            var a = document.createElement("a");
+            a.textContent = data.querydata.courses[i].course_code_number;
+            a.setAttribute('href', "http://www.msn.com");
+            li.appendChild(a);
+            //li.setAttribute("id", "element4"); // added line
+            select.appendChild(li);
+          }
+      },
+  // when request is completed -no matter if the error or not
+  // callbacks are of course not mandatory
+  })
+  </script>
 	</body>
 </html>
