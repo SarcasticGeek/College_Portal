@@ -80,10 +80,10 @@
   
   
 }
-.navbar-inverse img
+.navbar-default img
 {
   position: relative;
-  top: -19px;
+  top: -26px;
   
 }
 
@@ -102,7 +102,7 @@
         <span class="icon-bar"></span>
       </button>
       <a class="navbar-brand" href="#">
-      <img alt="Brand" src="logo.png" width="110" height="120" top="20"id="logo">
+      <img alt="Brand" src="logo.png" width="60" height="55" top="20"id="logo">
       </a>
     </div>
 
@@ -213,6 +213,7 @@
   <script type="text/javascript"src="asset/js/jquery.easing.min.js"></script>
   <script type="text/javascript"src="asset/js/scrolling-nav.js"></script>
     <script type="text/javascript" src="asset/js/maintainscroll.jquery.min.js"></script>
+
   <script >
   var student_id = 1;
   var select = document.getElementById("coursesMenu");
