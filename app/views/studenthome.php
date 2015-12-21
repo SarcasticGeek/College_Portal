@@ -151,7 +151,9 @@
             <div class="row">
                 <div class="col-lg-12">
                     <h1>Resources For All Courses</h1>
-                    <div class="courses_resources">
+                     <div class="courses_resources">
+                    <ul id ="r_list">
+                    </ul>
                     </div>
                       <a class="btn btn-info page-scroll" href="#deliverables">Next</a>
                 </div>
@@ -181,6 +183,8 @@
                 <div class="col-lg-12">
                     <h1>Messages from TAs</h1>
                     <div class="tas_messages">
+                    <ul id ="m_list">
+                    </ul>
                     </div>
                       <a class="btn btn-info page-scroll" href="#page-top">Next</a>
                 </div>
@@ -199,6 +203,8 @@
   var student_id = 1;
   var select = document.getElementById("coursesMenu");
   var d_list = document.getElementById("d_list");
+  var r_list = document.getElementById("r_list");
+  var m_list = document.getElementById("m_list");
   $.ajax({
         url: "http://localhost/college_portal/app/models/pullcourses.php",
         type: "post",
@@ -235,6 +241,45 @@
             a.setAttribute('href', deliver.href_d);
             li.appendChild(a);
             d_list.appendChild(li);
+          }
+      },
+  })
+   $.ajax({
+        url: "http://localhost/college_portal/app/models/pullallresources.php",
+        type: "post",
+        data: {student_id:student_id},
+        dataType : 'json',
+        success: function(data){ // trigger when request was successfull
+        //alert(data.querydata.courses);
+        for (i = 0; i < data.querydata.resources.length; i++)
+          {
+            console.log(data.querydata.resources[i].name);
+            var deliver = data.querydata.resources[i];
+            var li = document.createElement("li");
+            var a = document.createElement("a");
+            a.textContent = deliver.name_d+" By "+deliver.prof_name;
+            a.setAttribute('href', deliver.href_d);
+            li.appendChild(a);
+            r_list.appendChild(li);
+          }
+      },
+  })
+   $.ajax({
+        url: "http://localhost/college_portal/app/models/pullallmessages.php",
+        type: "post",
+        data: {student_id:student_id},
+        dataType : 'json',
+        success: function(data){ // trigger when request was successfull
+        //alert(data.querydata.courses);
+        for (i = 0; i < data.querydata.responses.length; i++)
+          {
+            console.log(data.querydata.responses[i].msg);
+            var deliver = data.querydata.responses[i];
+            var li = document.createElement("li");
+            var a = document.createElement("a");
+            a.textContent = deliver.msg+" By "+deliver.prof_name;
+            li.appendChild(a);
+            m_list.appendChild(li);
           }
       },
   })
