@@ -15,6 +15,8 @@ if (mysql_errno())
 <?php
 //perform data base query
 $query = "SELECT * FROM persons";
+$queryx = "SELECT * FROM students";
+$queryxx = "SELECT * FROM stuffs";
 $result = mysqli_query($connection,$query);
 
 if(!$result)
@@ -170,21 +172,50 @@ h1
 
 if(isset($_POST['btn-login']))
 {
+  
   $useremail = $_POST['emailk'];
   $userpassword = $_POST['passwordd'];
-$sql = mysqli_query($connection,"SELECT * FROM persons WHERE email = '$useremail' AND password = '$userpassword'");
-if(mysqli_num_rows($sql)>0)
+  $query = "SELECT id FROM persons WHERE email='$useremail'";
+  $result = mysqli_query($connection,$query) or die('Query failed: ' . mysql_error());
+  if(mysqli_num_rows($result)>0)
 {
-  echo "Login successfully";
-  header('Location: index.php');
+  while ($line = mysqli_fetch_array($result, MYSQLI_ASSOC))
+   {
+    $person_id = $line['id'];
+    $queryx = "SELECT id FROM students WHERE person_id='$person_id'";
+    $resultx = mysqli_query($connection,$queryx) or die('Query failed: ' . mysql_error());
+    if(mysqli_num_rows($resultx)>0)
+    {
+     while ($linex = mysqli_fetch_array($resultx, MYSQLI_ASSOC))
+      {
+        $student_id = $linex['id'];
+        echo "student id is ".$student_id;
+         //header('Location: index.php');
+      }
+    }
+    else
+    {
+      $queryxx = "SELECT id FROM stuffs WHERE person_id='$person_id' AND password = '$userpassword'";
+      $resultxx = mysqli_query($connection,$queryxx) or die('Query failed: ' . mysql_error());
+      while ($linexx = mysqli_fetch_array($resultxx, MYSQLI_ASSOC))
+      {
+        $stuff_id = $linexx['id'];
+        echo "student id is ".$stuff_id;
+        header('Location: index.php');
+      }
+    }
+  }
 }
 else
 {
   header('Location: failed.php');
   echo "Email or password is incorrect";
 }
-
 }
+  
+
+
+
 
 
 
