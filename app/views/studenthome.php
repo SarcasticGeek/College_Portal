@@ -26,11 +26,6 @@
   position: absolute;z-index: -999;
 
   }
-  .navbar-default.navbar-fixed-top
-  {
-
-     
-  }
   .alittlebitdown
   {
       width: 850px;
@@ -42,7 +37,42 @@
   {
     z-index: 1050;
   }
-
+  .courses_resources ul{
+        text-align: left;
+        background-color: #f2f3e7;
+        border-radius:5px;
+        margin:-13px;
+        margin-bottom: 10px;
+        margin-top: 10px;
+        margin-bottom: 20px;
+        padding: 20px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+}
+.courses_delieverables ul{
+        text-align: left;
+        background-color: #ffffff;
+        border-radius:5px;
+        margin:-13px;
+        margin-bottom: 10px;
+        margin-top: 10px;
+        margin-bottom: 20px;
+        padding: 20px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+}
+.tas_messages ul{
+        text-align: left;
+        background-color: #f2f3e7;
+        border-radius:5px;
+        margin:-13px;
+        margin-bottom: 10px;
+        margin-top: 10px;
+        margin-bottom: 20px;
+        padding: 20px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+}
   </style>
   </head>
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
@@ -121,6 +151,8 @@
             <div class="row">
                 <div class="col-lg-12">
                     <h1>Resources For All Courses</h1>
+                    <div class="courses_resources">
+                    </div>
                       <a class="btn btn-info page-scroll" href="#deliverables">Next</a>
                 </div>
             </div>
@@ -133,6 +165,10 @@
             <div class="row">
                 <div class="col-lg-12">
                     <h1>Deliverables</h1>
+                    <div class="courses_delieverables">
+                    <ul id ="d_list">
+                    </ul>
+                    </div>
                       <a class="btn btn-info page-scroll" href="#messages">Next</a>
                 </div>
             </div>
@@ -141,10 +177,11 @@
     </section>
     <section id="messages" class="messages-section">
         <div class="container">
-        
             <div class="row">
                 <div class="col-lg-12">
                     <h1>Messages from TAs</h1>
+                    <div class="tas_messages">
+                    </div>
                       <a class="btn btn-info page-scroll" href="#page-top">Next</a>
                 </div>
             </div>
@@ -161,6 +198,7 @@
   <script >
   var student_id = 1;
   var select = document.getElementById("coursesMenu");
+  var d_list = document.getElementById("d_list");
   $.ajax({
         url: "http://localhost/college_portal/app/models/pullcourses.php",
         type: "post",
@@ -176,12 +214,29 @@
             a.textContent = data.querydata.courses[i].course_code_number;
             a.setAttribute('href', "http://www.msn.com");
             li.appendChild(a);
-            //li.setAttribute("id", "element4"); // added line
             select.appendChild(li);
           }
       },
-  // when request is completed -no matter if the error or not
-  // callbacks are of course not mandatory
+  })
+   $.ajax({
+        url: "http://localhost/college_portal/app/models/pullalldelieverables.php",
+        type: "post",
+        data: {student_id:student_id},
+        dataType : 'json',
+        success: function(data){ // trigger when request was successfull
+        //alert(data.querydata.courses);
+        for (i = 0; i < data.querydata.deliverables.length; i++)
+          {
+            console.log(data.querydata.deliverables[i].name);
+            var deliver = data.querydata.deliverables[i];
+            var li = document.createElement("li");
+            var a = document.createElement("a");
+            a.textContent = deliver.name_d+" Deadline : "+deliver.deadline+" By "+deliver.prof_name;
+            a.setAttribute('href', deliver.href_d);
+            li.appendChild(a);
+            d_list.appendChild(li);
+          }
+      },
   })
   </script>
 	</body>
