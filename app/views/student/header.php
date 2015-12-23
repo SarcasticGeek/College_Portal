@@ -1,4 +1,8 @@
-  <div class="navbar navbar-inverse navbar-static-top">
+  
+
+
+
+  <div class="navbar navbar-inverse navbar-static-top" >
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-ex-collapse">
@@ -7,7 +11,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#"><span>Ain Shams Unversity | A web portal between students &amp; TAs
+          <a class="navbar-brand" style="font-family:'Oswald',sans-serif'" href="#"><span>Faculty of engineering | A web portal between students &amp; TAs
 
 </span></a>
         </div>

@@ -73,7 +73,7 @@ if(!$result)
               <a href="#">About</a>
             </li>
             <li>
-              <a href="#">Contacts</a>
+             
             </li>
           </ul>
         </div>

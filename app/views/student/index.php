@@ -4,8 +4,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script type="text/javascript" src="../assets/js/jquery.min.js"></script>
     <script type="text/javascript" src="../assets/js/bootstrap.min.js"></script>
+      <link href='http://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
+
     <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="../assets/css/bootstrap.css" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
     <style type="text/css">
     .responsive-video {
 		position: relative;
@@ -23,6 +26,12 @@
 		width: 100%;
 		height: 100%;
 		}
+
+.navbar-brand
+{
+  font-family: 'Oswald',sans-serif;
+}
+
     </style>
   </head>
   <body>
