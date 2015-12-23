@@ -88,7 +88,7 @@ Class Student
 	public static function get_Deliverables_Ids($c_id)
 	{
 		global $conn;
-		$sql = "SELECT d_id FROM upload_d WHERE c_id ='$id'";
+		$sql = "SELECT d_id FROM upload_d WHERE c_id ='$c_id'";
 		if ($result->num_rows > 0)
 		{
 			$d_ids = array();
@@ -105,7 +105,7 @@ Class Student
 	public static function get_Resources_Ids($c_id)
 	{
 		global $conn;
-		$sql = "SELECT r_id FROM upload_r WHERE c_id ='$id'";
+		$sql = "SELECT r_id FROM upload_r WHERE c_id ='$c_id'";
 		if ($result->num_rows > 0)
 		{
 			$r_ids = array();
@@ -117,6 +117,20 @@ Class Student
     	else 
     	{
     		return 0;
+		}
+	}
+	public static function submit_deliverable($sd_id,$c_id,$d_id,$ans_link)
+	{
+		global $conn;
+		$sql = "INSERT INTO submit (sd_id, c_id,d_id,ans_link)
+		VALUES ('$sd_id', '$c_id','$d_id', '$ans_link')";
+		if ($conn->query($sql) === TRUE)
+		{
+    		return TRUE;
+		} 
+		else
+		{
+			return FALSE;
 		}
 	}
 }
