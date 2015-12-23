@@ -53,6 +53,7 @@ Class Student
 	{
 		global $conn;
 		$sql = "SELECT c_id FROM joined WHERE student_id ='$id'";
+		$result = $conn->query($sql)or die('Query failed: ' . mysql_error());
 		if ($result->num_rows > 0)
 		{
 			$courses = array();
@@ -71,6 +72,7 @@ Class Student
 	{
 		global $conn;
 		$sql = "SELECT st_id FROM teach WHERE c_id ='$id'";
+		$result = $conn->query($sql)or die('Query failed: ' . mysql_error());
 		if ($result->num_rows > 0)
 		{
 			$Tas = array();
@@ -89,6 +91,7 @@ Class Student
 	{
 		global $conn;
 		$sql = "SELECT d_id FROM upload_d WHERE c_id ='$c_id'";
+		$result = $conn->query($sql)or die('Query failed: ' . mysql_error());
 		if ($result->num_rows > 0)
 		{
 			$d_ids = array();
@@ -106,6 +109,7 @@ Class Student
 	{
 		global $conn;
 		$sql = "SELECT r_id FROM upload_r WHERE c_id ='$c_id'";
+		$result = $conn->query($sql)or die('Query failed: ' . mysql_error());
 		if ($result->num_rows > 0)
 		{
 			$r_ids = array();
