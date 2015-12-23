@@ -50,7 +50,9 @@ class Persons
       while ($linexx = $resultxx->fetch_assoc())
       {
         $stuff_id = $linexx['p_id'];
-       echo "stuff id is ".$stuff_id;
+        $stuff_name = $line['fname'];
+
+       echo "stuff id is ".$stuff_name;
         //header('Location: index.php');
       }
     }
