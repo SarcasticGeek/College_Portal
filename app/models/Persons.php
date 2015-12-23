@@ -22,6 +22,7 @@ class Persons
    {
     $person_id = $line['id'];
     $queryx = "SELECT p_id FROM student WHERE p_id='$person_id'";
+    //$queryname = "SELECT p_id FROM student WHERE p_id='$person_id'";
     $resultx =$conn->query($queryx) or die('Query failed: ' . mysql_error());
     if($resultx->num_rows>0)
     {
@@ -29,9 +30,11 @@ class Persons
      while ($linex = $resultx->fetch_assoc())
       {
         $student_id = $linex['p_id'];
+     
         //array_push($ids,$row['id'])
         
         echo "student id is ".$student_id;
+        
         //header('Location: studenthome.php');
       
   
@@ -41,12 +44,12 @@ class Persons
     
     else
     {
-      $queryxx = "SELECT p_id FROM stuff WHERE p_id='$person_id' AND password = '$userpassword'";
-      $resultxx = $conn->$query($queryxx) or die('Query failed: ' . mysql_error());
+      $queryxx = "SELECT p_id FROM stuff WHERE p_id='$person_id'";
+      $resultxx = $conn->query($queryxx) or die('Query failed: ' . mysql_error());
       while ($linexx = $resultxx->fetch_assoc())
       {
         $stuff_id = $linexx['p_id'];
-       // echo "student id is ".$stuff_id;
+       echo "stuff id is ".$stuff_id;
         //header('Location: index.php');
       }
     }
