@@ -25,6 +25,7 @@ Class Student
 		{
 			while($row = $result->fetch_assoc()) {
 				$year = $row['studyingyear'];
+				return $year;
 			}
     		
 		}
@@ -32,6 +33,21 @@ Class Student
     	{
     		return 0
 		}
+	}
+	public static function ask($id,$t_id,$question)
+	{
+		global $conn;
+		$sql = "INSERT INTO MyGuests (s_id, t_id, question)
+		VALUES ('$id', '$t_id', '$question')";
+		if ($conn->query($sql) === TRUE)
+		{
+    		return TRUE;
+		} 
+		else
+		{
+			return FALSE;
+		}
+
 	}
 }
 ?>
