@@ -7,7 +7,7 @@ class Persons
 	public static function login($useremail,$userpassword) {
 		global $conn;
 
-    $query = "SELECT id FROM person WHERE email='$useremail'";
+    $query = "SELECT * FROM person WHERE email='$useremail'";
     $result = $conn->query($query) or die('Query failed: ' . mysql_error());
 
 
@@ -21,7 +21,7 @@ class Persons
   
    {
     $person_id = $line['id'];
-    $queryx = "SELECT p_id FROM student WHERE p_id='$person_id'";
+    $queryx = "SELECT * FROM student WHERE p_id='$person_id'";
     //$queryname = "SELECT p_id FROM student WHERE p_id='$person_id'";
     $resultx =$conn->query($queryx) or die('Query failed: ' . mysql_error());
     if($resultx->num_rows>0)
@@ -30,10 +30,11 @@ class Persons
      while ($linex = $resultx->fetch_assoc())
       {
         $student_id = $linex['p_id'];
+        $student_name = $line['fname'];
      
         //array_push($ids,$row['id'])
         
-        echo "student id is ".$student_id;
+        echo "student name is ".$student_name;
         
         //header('Location: studenthome.php');
       
