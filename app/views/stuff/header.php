@@ -14,10 +14,13 @@
         <div class="collapse navbar-collapse" id="navbar-ex-collapse">
           <ul class="nav navbar-nav navbar-right">
             <li class="active">
-              <a href="#">Home of 110000@eng.asu.edu</a>
+              <a href="#">Home of Dr Medhat</a>
+            </li>
+            <li >
+              <a href="messages.php">Messages from students</a>
             </li>
             <li>
-              <a href="#">Logout</a>
+              <a href="logout.php">Logout</a>
             </li>
           </ul>
         </div>
