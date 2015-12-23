@@ -31,13 +31,13 @@ Class Student
 		}
     	else 
     	{
-    		return 0
+    		return 0;
 		}
 	}
 	public static function ask($id,$t_id,$question)
 	{
 		global $conn;
-		$sql = "INSERT INTO MyGuests (s_id, t_id, question)
+		$sql = "INSERT INTO ask (s_id, t_id, question)
 		VALUES ('$id', '$t_id', '$question')";
 		if ($conn->query($sql) === TRUE)
 		{
@@ -46,6 +46,24 @@ Class Student
 		else
 		{
 			return FALSE;
+		}
+
+	}
+	public static function get_Courses($id)
+	{
+		global $conn;
+		$sql = "SELECT c_id FROM joined WHERE student_id ='.$id'";
+		if ($result->num_rows > 0)
+		{
+			$courses = array();
+			while($row = $result->fetch_assoc()) {
+				array_push($courses,$row['c_id']);
+			}
+    		return $courses;
+		}
+    	else 
+    	{
+    		return 0;
 		}
 
 	}
