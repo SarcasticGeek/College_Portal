@@ -1,7 +1,7 @@
 <?php
 include "../../dbconnect.php";
 
-class course
+class Course
  {
 	public static function get_name($c_id) {
     global $conn;
