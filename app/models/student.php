@@ -85,5 +85,39 @@ Class Student
 		}
 
 	}
+	public static function get_Deliverables_Ids($c_id)
+	{
+		global $conn;
+		$sql = "SELECT d_id FROM upload_d WHERE c_id ='$id'";
+		if ($result->num_rows > 0)
+		{
+			$d_ids = array();
+			while($row = $result->fetch_assoc()) {
+				array_push($d_ids,$row['d_id']);
+			}
+    		return $d_ids;
+		}
+    	else 
+    	{
+    		return 0;
+		}
+	}
+	public static function get_Resources_Ids($c_id)
+	{
+		global $conn;
+		$sql = "SELECT r_id FROM upload_r WHERE c_id ='$id'";
+		if ($result->num_rows > 0)
+		{
+			$r_ids = array();
+			while($row = $result->fetch_assoc()) {
+				array_push($d_ids,$row['r_id']);
+			}
+    		return $r_ids;
+		}
+    	else 
+    	{
+    		return 0;
+		}
+	}
 }
 ?>
