@@ -6,12 +6,12 @@
 		<title>Student Home</title>
 		<meta name="generator" content="Bootply" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-		<link href="asset/css/bootstrap.min.css" rel="stylesheet">
+		<link href="assets/css/bootstrap.min.css" rel="stylesheet">
 		<!--[if lt IE 9]>
 			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
-		<link href="asset/css/styles.css" rel="stylesheet">
-    <link  rel="stylesheet"type="text/css"href= "asset/css/scrolling-nav.css">
+		<link href="assets/css/styles.css" rel="stylesheet">
+    <link  rel="stylesheet"type="text/css"href= "assets/css/scrolling-nav.css">
   
   <style>
   .navbar-nav {
@@ -73,20 +73,6 @@
         padding-top: 5px;
         padding-bottom: 5px;
 }
-.navbar-inverse
-{
-  height: 150px;
-  background-color:#325C74;
-  
-  
-}
-.navbar-default img
-{
-  position: relative;
-  top: -26px;
-  
-}
-
   </style>
   </head>
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
@@ -102,7 +88,7 @@
         <span class="icon-bar"></span>
       </button>
       <a class="navbar-brand" href="#">
-      <img alt="Brand" src="logo.png" width="60" height="55" top="20"id="logo">
+      <img alt="Brand" src="assets/asulogo.jpg">
       </a>
     </div>
 
@@ -208,12 +194,11 @@
     </section>
 	<!-- script references -->
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
-	<script src="asset/js/bootstrap.min.js"></script>
-  <script type="text/javascript"src="asset/js/jquery.js'"></script>
-  <script type="text/javascript"src="asset/js/jquery.easing.min.js"></script>
-  <script type="text/javascript"src="asset/js/scrolling-nav.js"></script>
-    <script type="text/javascript" src="asset/js/maintainscroll.jquery.min.js"></script>
-
+	<script src="assets/js/bootstrap.min.js"></script>
+  <script type="text/javascript"src="assets/js/jquery.js'"></script>
+  <script type="text/javascript"src="assets/js/jquery.easing.min.js"></script>
+  <script type="text/javascript"src="assets/js/scrolling-nav.js"></script>
+    <script type="text/javascript" src="assets/js/maintainscroll.jquery.min.js"></script>
   <script >
   var student_id = 1;
   var select = document.getElementById("coursesMenu");

@@ -73,10 +73,13 @@ if(!$result)
 p
 {
   font-size: 40px;
+  color: white;
   font-family: 'Oswald', sans-serif;
   position: relative;
-  bottom: -60px;
-  top:50px;
+  bottom: -30px;
+  top:40px;
+  left: 20px;
+ 
   width: 1000px;
 }
 .btn-primary
@@ -91,6 +94,7 @@ h1
   font-size: 15px;
   position: relative;
   top:30px;
+  left: 20px;
   font-family: 'Oswald',sans-serif;
 }
 .form
