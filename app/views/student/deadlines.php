@@ -28,10 +28,10 @@
                                     </button>
                                     <h4 class="modal-title" id="<?= $forDivs ?>" style="color:black;">Select file to upload for <?= $forDivs ?></h4>
                                   </div>
-                        <form class="form-horizontal" role="form" action="../upload.php" method="POST" enctype="multipart/form-data">
+                        <form class="form-horizontal" role="form" action="../upload.php" method="post" enctype="multipart/form-data">
                                           <input type="hidden" name="whichupload" value="deadline">
                                           <input type="hidden" name="coursename" value="<?= $Course_code ?>">
-                                          <input type="hidden" name="deliverablename" value="<?= $deliverablename ?>">
+                                          <input type="hidden" name="deliverablename" value="<?= $deliverable_Name ?>">
                                           <input type="hidden" name="studentId" value="<?= $stud_id ?>">
 
                           <div class="form-group">

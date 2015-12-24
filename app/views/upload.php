@@ -57,6 +57,7 @@ if (isset($_POST)) {
 		      }
 		   }		
 	}elseif ($_POST['whichupload'] == "deadline") {
+		//INPUTS ?whichupload=deadline&coursename=CSE520&deliverablename=Assignment+1&studentId=1&fileToUpload=
 		if(isset($_FILES['fileToUpload'])){
 		      $errors= array();
 		      $file_name = $_FILES['fileToUpload']['name'];
