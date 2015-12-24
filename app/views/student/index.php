@@ -61,13 +61,13 @@
                     <h4 class="modal-title" id="myModalLabel" style="color:black;">Message To Stuff of course CSE223</h4>
                   </div>
                   <div class="modal-body">
-                    <form class="form-horizontal" role="form" style="opacity: 0.5;">
+                    <form class="form-horizontal" role="form" action="send.php" >
                       <div class="form-group">
                         <div class="col-sm-2">
                           <label for="inputPassword3" class="control-label">Message</label>
                         </div>
                         <div class="col-sm-8">
-                          <input type="text" class="form-control" id="inputPassword3" placeholder="">
+                          <textarea class="form-control" name="msg" id="inputPassword3" placeholder=""></textarea>
                         </div>
                       </div>
                       <div class="form-group">

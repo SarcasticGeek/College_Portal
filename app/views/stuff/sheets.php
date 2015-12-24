@@ -8,7 +8,7 @@
   <li role="presentation" ><a href="deliverable.php?deliverable=3">report 3</a></li>
 
   <li role="presentation" id="UploadingOfdeliverable">
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example0-modal-sm">   <span class="glyphicon glyphicon-plus-sign" aria-hidden="false"></span> Add Sheet</button>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example0-modal-sm">   <span class="glyphicon glyphicon-plus-sign" aria-hidden="false"></span> Add deliverable</button>
           <div class="modal fade bs-example0-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel0" >
             <div class="modal-dialog" >
               <div class="modal-content">

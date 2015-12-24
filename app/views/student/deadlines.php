@@ -3,36 +3,37 @@
               <br>
             </h2>
             <ul class="media-list">
+              <?php $deliverable_Name = "Assignment 1" ; $Course_code= "CSE520" ; $stud_id = 1 ;
+               $link_delv = "http://localhost/college_portal/app/views/upload/res1.pdf";
+               $deadline_delv = "10pm 30/12" ;
+               $ay7aga = $deliverable_Name . $Course_code;
+               $forDivs = str_replace(' ', '', strtolower($ay7aga)); ?>
               <li class="media">
                 <div class="media-left">
-                  <h3 class="text-center text-primary">CSE231</h3>
+                  <h3 class="text-center text-primary"><?= $Course_code ?></h3>
                 </div>
                 <div class="media-body">
-                  <h4 class="media-heading"><a href="http://localhost/college_portal/app/views/upload/res1.pdf" target="_blank"> Assignment 2</a></h4>
-                  <span class="glyphicon glyphicon-time" aria-hidden="false"></span>10pm 30/12
+                  <h4 class="media-heading"><a href="<?= $link_delv ?>" target="_blank"><?= $deliverable_Name ?></a></h4>
+                  <span class="glyphicon glyphicon-time" aria-hidden="false"></span> <?= $deadline_delv ?>
                   <br>
-                  <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>At Research Room</div>
-              </li>
-              <li class="media">
-                <div class="media-left">
-                  <h3 class="text-center text-primary">CSE520</h3>
-                </div>
-                <div class="media-body">
-                  <h4 class="media-heading"><a href="http://localhost/college_portal/app/views/upload/res1.pdf" target="_blank">Assignment 1</a></h4>
-                  <span class="glyphicon glyphicon-time" aria-hidden="false"></span> 10pm 30/12
-                  <br>
+                  <!---Uploader -->
             
-                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-assig1cse520-modal-sm">   <span class="glyphicon glyphicon-plus-sign" aria-hidden="false"></span> Upload</button>
-                  <div class="modal fade bs-assig1cse520-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel2">
+                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-<?= $forDivs ?>-modal-sm">   <span class="glyphicon glyphicon-plus-sign" aria-hidden="false"></span> Upload</button>
+                  <div class="modal fade bs-<?= $forDivs ?>-modal-sm" tabindex="-1" role="dialog" aria-labelledby="<?= $forDivs ?>">
                     <div class="modal-dialog modal-sm">
                       <div class="modal-content">
                       <div class="modal-header">
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                       <span aria-hidden="true">×</span>
                                     </button>
-                                    <h4 class="modal-title" id="myModalLabelassig1cse520" style="color:black;">Select file to upload for assig1cse520</h4>
+                                    <h4 class="modal-title" id="<?= $forDivs ?>" style="color:black;">Select file to upload for <?= $forDivs ?></h4>
                                   </div>
-                        <form class="form-horizontal" role="form" style="opacity: 0.5;">
+                        <form class="form-horizontal" role="form" action="../upload.php" method="POST" enctype="multipart/form-data">
+                                          <input type="hidden" name="whichupload" value="deadline">
+                                          <input type="hidden" name="coursename" value="<?= $Course_code ?>">
+                                          <input type="hidden" name="deliverablename" value="<?= $deliverablename ?>">
+                                          <input type="hidden" name="studentId" value="<?= $stud_id ?>">
+
                           <div class="form-group">
                             <div class="col-sm-12">
                               <input type="file" id="fileToUpload" class="form-control" name="fileToUpload">
