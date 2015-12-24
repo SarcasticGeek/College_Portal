@@ -126,16 +126,41 @@ Class Student
 	public static function submit_deliverable($sd_id,$c_id,$d_id,$ans_link)
 	{
 		global $conn;
-		$sql = "INSERT INTO submit (sd_id, c_id,d_id,ans_link)
-		VALUES ('$sd_id', '$c_id','$d_id', '$ans_link')";
-		if ($conn->query($sql) === TRUE)
+		$sql = "SELECT deadline FROM deliverable WHERE id ='$d_id'";
+		$result = $conn->query($sql)or die('Query failed: ' . mysql_error());
+		if ($result->num_rows > 0)
 		{
-    		return TRUE;
-		} 
-		else
-		{
-			return FALSE;
+			while($row = $result->fetch_assoc()) {
+				$deadline = $row['deadline'];
+				date_default_timezone_set('Africa/Cairo');
+				$current_date = date('d/m/Y', time());
+				$format = "d/m/y";
+				$date1  = DateTime::createFromFormat($format, $deadline);
+				$date2  = DateTime::createFromFormat($format, $current_date);
+				if($date1<$date2)
+				{
+					$sql = "INSERT INTO submit (sd_id, c_id,d_id,ans_link)
+					VALUES ('$sd_id', '$c_id','$d_id', '$ans_link')";
+					if ($conn->query($sql) === TRUE)
+					{
+    					return "Deliverable Submitted";
+					} 
+					else
+					{
+						return "Sorry Something went wrong on submission";
+					}
+				}
+				else
+				{
+					"Deadline Already Passed"
+				}
+			}
 		}
+    	else 
+    	{
+    		return "Deadline not found =/";
+		}
+		
 	}
 }
 ?>
