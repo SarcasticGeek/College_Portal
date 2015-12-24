@@ -98,9 +98,40 @@ class Stuff
             return "FAILED TO ENTER THE RESOURCE IN THE RESOURCE TABLE";
         }
     }
-    public static function upload_deliverable($id)
+    public static function upload_deliverable($name,$brief_desc,$des_link,$type,$deadline,$st_id,$c_id)
     {
         global $conn;
+        $sql = "INSERT INTO deliverable (name, brief_desc,des_link,type,deadline)
+        VALUES ('$name', '$brief_desc','$des_link', '$type','$deadline')";
+        if ($conn->query($sql) === TRUE)
+        {
+            $sqlx = "SELECT id FROM deliverable WHERE des_link ='$des_link'";
+            $result = $conn->query($sqlx)or die('Query failed: ' . mysql_error());
+            $id_d = -1;
+            if ($result->num_rows > 0)
+            {
+                while($row = $result->fetch_assoc())
+                    $id_d = $row['id']; 
+                $sqlxx = "INSERT INTO upload_d (st_id, c_id,d_id)
+                VALUES ('$st_id','$c_id','$id_d')";
+                if ($conn->query($sqlxx) === TRUE)
+                {
+                    return "UPLOAD SUCCESSFULL";
+                } 
+                else
+                {
+                    return "FAILED TO ENTER THE DELIVERABLE IN THE UPLOAD TABLE";
+                }
+            }
+            else 
+            {
+                return "FAILED TO FIND THE DELIVERABLE";
+            }
+        } 
+        else
+        {
+            return "FAILED TO ENTER THE DELIVERABLE IN THE DELIVERABLE TABLE";
+        }
     }
     public static function get_submitted($id)
     {
