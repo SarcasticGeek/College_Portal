@@ -8,7 +8,7 @@
                   <h3 class="text-center text-primary">CSE231</h3>
                 </div>
                 <div class="media-body">
-                  <h4 class="media-heading">Assignment 2</h4>
+                  <h4 class="media-heading"><a href="http://localhost/college_portal/app/views/upload/res1.pdf" target="_blank"> Assignment 2</a></h4>
                   <span class="glyphicon glyphicon-time" aria-hidden="false"></span>10pm 30/12
                   <br>
                   <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>At Research Room</div>
@@ -18,10 +18,10 @@
                   <h3 class="text-center text-primary">CSE520</h3>
                 </div>
                 <div class="media-body">
-                  <h4 class="media-heading">Assignment 1</h4>
+                  <h4 class="media-heading"><a href="http://localhost/college_portal/app/views/upload/res1.pdf" target="_blank">Assignment 1</a></h4>
                   <span class="glyphicon glyphicon-time" aria-hidden="false"></span> 10pm 30/12
                   <br>
-      
+            
                   <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-assig1cse520-modal-sm">   <span class="glyphicon glyphicon-plus-sign" aria-hidden="false"></span> Upload</button>
                   <div class="modal fade bs-assig1cse520-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel2">
                     <div class="modal-dialog modal-sm">
