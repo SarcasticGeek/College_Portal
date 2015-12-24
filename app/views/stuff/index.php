@@ -7,7 +7,6 @@
         <div class="row">
           <?php include 'sheets.php'; ?>
  		<?php include 'headOfmain.php'; ?>
-    
         </div>
       </div>
     </div>
