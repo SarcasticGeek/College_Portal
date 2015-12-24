@@ -6,8 +6,7 @@
       <div class="container">
         <div class="row">
           <?php include 'sheets.php'; ?>
- 		<?php include 'headOfmain.php'; ?>
-    
+          <?php include 'studentslist.php' ;?>
         </div>
       </div>
     </div>
