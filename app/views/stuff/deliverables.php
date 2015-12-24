@@ -3,10 +3,15 @@
 
 
 <ul class="nav nav-pills nav-stacked">
-  <li role="presentation" class="active"><a href="deliverable.php?deliverable=1">report 1</a></li>
-  <li role="presentation" ><a href="deliverable.php?deliverable=2">homework 2</a></li>
-  <li role="presentation" ><a href="deliverable.php?deliverable=3">report 3</a></li>
+<?php $deliverableIDOfstuff = 1 ; $deliverableNameOfstuff = "Report 1";?>
+  <li role="presentation"><a href="deliverable.php?deliverable=<?= $deliverableIDOfstuff ?>"><?= $deliverableNameOfstuff ?></a></li>
+ 
 
+
+
+<!---uploader -->
+<?php  $Course_code= "CSE520" ; 
+                ?>
   <li role="presentation" id="UploadingOfdeliverable">
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example0-modal-sm">   <span class="glyphicon glyphicon-plus-sign" aria-hidden="false"></span> Add deliverable</button>
           <div class="modal fade bs-example0-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel0" >
@@ -18,9 +23,10 @@
                             </button>
                             <h4 class="modal-title" id="myModalLabel" style="color:black;">Select file to upload</h4>
                           </div>
-                <form class="form-horizontal" role="form"  action="../upload.php" method="POST" enctype="multipart/form-data">
+                <form class="form-horizontal" role="form"  action="../upload.php" method="get" enctype="multipart/form-data">
                   <div class="form-group">
                   <input type="hidden" name="whichupload" value="deliverable">
+                  <input type="hidden" name="course_code" value="<?= $Course_code ?>">
                     <div class="col-sm-12">
                       <input type="file" id="fileToUpload" class="form-control" name="fileToUpload">
                     </div>

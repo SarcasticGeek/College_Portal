@@ -20,7 +20,7 @@
               <a href="messages.php">Messages from students</a>
             </li>
             <li>
-              <a href="logout.php">Logout</a>
+              <a href="../logout.php">Logout</a>
             </li>
           </ul>
         </div>

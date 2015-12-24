@@ -5,7 +5,7 @@
   <div class="section">
       <div class="container">
         <div class="row">
-          <?php include 'sheets.php'; ?>
+          <?php include 'deliverables.php'; ?>
  		<?php include 'headOfmain.php'; ?>
     
         </div>

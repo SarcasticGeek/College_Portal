@@ -1,3 +1,5 @@
+<?php  $Course_code= "CSE520" ; ?>
+<!---uploader -->
 <div role="tabpanel" class="tab-pane" id="tuts">
 <br>
 
@@ -13,6 +15,7 @@
                   </div>
         <form class="form-horizontal" role="form"  action="../upload.php" method="post" enctype="multipart/form-data">
                   <input type="hidden" name="whichupload" value="tutorial">
+          <input type="hidden" name="course_code" value="<?= $Course_code ?>">
 
            <div class="form-group">
                     <div class="col-sm-12">
@@ -32,7 +35,7 @@
           </div>
           <div class="form-group">
             <div class="col-sm-12">
-            <label for="basic-url">Your vanity URL</label>
+            <label for="basic-url">YouTube URL</label>
             <div class="input-group">
               <span class="input-group-addon" id="basic-addon3">http://www.youtube.com/embed/</span>
               <input type="text" class="form-control" name="IdOfYoutube" placeholder="id of youtube video" id="basic-url" aria-describedby="basic-addon3">
@@ -48,21 +51,36 @@
       </div>
     </div>
   </div>
+
+  <!--- Resourses viewing -->
+  <?php //resourses with videos
+  $youtubeID ="NoCcEECYBuE" ;
+  $fileName = "Ezay tt3lm electro";
+  $fileDisc = "video gamel" ;
+   ?>
+   
+
 <div class="col-md-4">
 	<div class="responsive-video">
 		<iframe width="420" height="315"
-		src="http://www.youtube.com/embed/NoCcEECYBuE">
+		src="http://www.youtube.com/embed/<?= $youtubeID ?>">
 		</iframe>
 	</div>
-  <h3>Electroincs</h3>
+  <h3><?= $fileName ?></h3>
+  <p><?= $fileDisc ?></p>
 </div>
+
+
 <div class="col-md-4">
-	<div class="responsive-video">
-		<iframe width="420" height="315"
-		src="http://www.youtube.com/embed/NoCcEECYBuE">
-		</iframe>
-	</div>
-  <h3>Electroincs</h3>
+  <div class="responsive-video">
+    <iframe width="420" height="315"
+    src="http://www.youtube.com/embed/<?= $youtubeID ?>">
+    </iframe>
+  </div>
+  <h3><?= $fileName ?></h3>
+  <p><?= $fileDisc ?></p>
 </div>
+
+
 
 </div>

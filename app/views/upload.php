@@ -1,6 +1,7 @@
 <?php
 if (isset($_POST)) {
 	if ($_POST['whichupload'] == "resource") {
+		# INPUTS : ?whichupload=resource&course_code=CSE520&fileToUpload=&name=&description=&type=sheet
 		if(isset($_FILES['fileToUpload'])){
 		      $errors= array();
 		      $file_name = $_FILES['fileToUpload']['name'];
@@ -27,10 +28,10 @@ if (isset($_POST)) {
 		      }
 		   }		
 	}elseif ($_POST['whichupload'] == "tutorial") {
-		# code...
+		# INPUTS whichupload=tutorial&course_code=CSE520&name=&description=&IdOfYoutube=
 
 	}elseif ($_POST['whichupload'] == "deliverable") {
-		# code...
+		# INPUTS ?whichupload=deliverable&course_code=CSE520&fileToUpload=&name=&description=&type=homework&deadline=2015-12-29+00-00-00
 		if(isset($_FILES['fileToUpload'])){
 		      $errors= array();
 		      $file_name = $_FILES['fileToUpload']['name'];

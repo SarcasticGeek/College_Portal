@@ -1,3 +1,6 @@
+<?php  $Course_code= "CSE520" ; ?>
+<!---uploader -->
+
 <div role="tabpanel" class="tab-pane active" id="Resources">
 <br>
 
@@ -11,8 +14,9 @@
                     </button>
                     <h4 class="modal-title" id="myModalLabel" style="color:black;">Upload A Resource</h4>
                   </div>
-        <form class="form-horizontal" role="form" id="UploadingResources"  action="../upload.php" method="POST" enctype="multipart/form-data">
+        <form class="form-horizontal" role="form" id="UploadingResources"  action="../upload.php" method="get" enctype="multipart/form-data">
           <input type="hidden" name="whichupload" value="resource">
+          <input type="hidden" name="course_code" value="<?= $Course_code ?>">
 
           <div class="form-group">
             <div class="col-sm-12">
@@ -59,16 +63,33 @@
       </div>
     </div>
   </div>
+
+
+
+  <!--- Resourses viewing -->
+  <?php //resourses without videos
+  $filePDF = "http://localhost/college_portal/app/views/upload/res1.pdf" ;
+  $fileName = "chapter1";
+  $fileDisc = "chapter 2 hena" ;
+   ?>
+   
 <div class="col-md-4">
   <div class="responsive-video">
-    <iframe src = "../assets/js/ViewerJS/#../../../upload/res1.pdf" width='400' height='300' allowfullscreen webkitallowfullscreen></iframe>
+    <iframe src = "../assets/js/ViewerJS/#<?= $filePDF ?>" width='400' height='300' allowfullscreen webkitallowfullscreen></iframe>
   </div>
-  <h3>chapter 1</h3>
+  <h3><?= $fileName ?></h3>
+  <p><?= $fileDisc ?></p>
 </div>
+
+
 <div class="col-md-4">
   <div class="responsive-video">
-    <iframe src = "../assets/js/ViewerJS/#../../../upload/res1.pdf" width='400' height='300' allowfullscreen webkitallowfullscreen></iframe>
+    <iframe src = "../assets/js/ViewerJS/#<?= $filePDF ?>" width='400' height='300' allowfullscreen webkitallowfullscreen></iframe>
   </div>
-  <h3>chapter 1</h3>
+  <h3><?= $fileName ?></h3>
+  <p><?= $fileDisc ?></p>
 </div>
+
+
+
 </div>
