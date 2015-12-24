@@ -22,7 +22,7 @@
               <div class="tab-content">
                 <?php include 'resources.php'; ?>
                 <?php include 'tutorials.php' ;?>
-                <?php include 'messages.php'; ?>
+               
               </div>
             </div>
           </div>
