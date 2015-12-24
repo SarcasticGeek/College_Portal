@@ -1,33 +1,16 @@
 <?php
+require_once 'session.php';
 
-$dbhost = "localhost";
-$dbuser = "root";
-$dbpass = "";
-$dbname = "portal";
-$connection = mysqli_connect($dbhost,$dbuser,$dbpass,$dbname);
-
-if (mysql_errno())
-{
-  die("Database connection failed".mysql_error()  ."(" .mysql_errno() . ")");
+if ( logged_in() ) {
+  $person_id = $_SESSION['person_id'];
+  if(1/*checking by db if stud or stuff*/){
+    header("Location:student");
+  }else{
+        header("Location:stuff");
+  }
 }
+$_SESSION['person_id'] = 1;
 ?>
-
-<?php
-//perform data base query
-$query = "SELECT * FROM persons";
-$result = mysqli_query($connection,$query);
-
-if(!$result)
-{
-  die("Database query failed.");
-}
-
-
-?>
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -95,7 +78,7 @@ if(!$result)
                   <label for="inputEmail3" class="control-label">Email</label>
                 </div>
                 <div class="col-sm-10">
-                  <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+                  <input type="email" name="email" class="form-control" id="inputEmail3" placeholder="Email">
                 </div>
               </div>
               <div class="form-group">
@@ -103,17 +86,10 @@ if(!$result)
                   <label for="inputPassword3" class="control-label">Password</label>
                 </div>
                 <div class="col-sm-10">
-                  <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+                  <input type="password" name="password"class="form-control" id="inputPassword3" placeholder="Password">
                 </div>
               </div>
-              <div class="form-group">
-                <div class="col-sm-offset-2 col-sm-10">
-                  <div class="checkbox">
-                    <label>
-                      <input type="checkbox">Remember me</label>
-                  </div>
-                </div>
-              </div>
+        
               <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
                   <button type="submit" class="btn btn-default">Login</button>
@@ -125,44 +101,7 @@ if(!$result)
       </div>
     </div>
 
-<?php
 
-  //Start session
-  session_start();
- 
-  
-
-if(isset($_POST['btn-login']))
-{
-  $useremail = $_POST['emailk'];
-  $userpassword = $_POST['passwordd'];
-$sql = mysqli_query($connection,"SELECT * FROM persons WHERE email = '$useremail' AND password = '$userpassword'");
-if(mysqli_num_rows($sql)>0)
-{
-  echo "Login successfully";
-  header('Location: index.php');
-}
-else
-{
-  header('Location: failed.php');
-  echo "Email or password is incorrect";
-}
-
-}
-
-
-
-
-
-
-
-
-
-
-?>
 
 </body>
 </html>
-<?php
-mysqli_close($connection);
-?>

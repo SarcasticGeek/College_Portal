@@ -1,3 +1,17 @@
+<?php 
+require_once '../session.php';
+
+if ( logged_in() ) {
+  $person_id = $_SESSION['person_id'];
+  if(1/*checking by db if stud or stuff*/){
+    header("Location:../student");
+  }else{
+  }
+  }else {
+          header("Location:../login.php");
+
+}
+?>
 <html>
 <?php include 'headhtmlincludes.php'; ?>
   <body>
