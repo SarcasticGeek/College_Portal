@@ -26,7 +26,7 @@
         text-align: left;
         background-color: lightgray;
         border-radius:5px;
-        margin:-13px;
+         margin:-13px;
 
         margin-top: 10px;
         margin-bottom: 20px;
@@ -53,5 +53,5 @@
  <div class="new">
  	 <p id="empty">No new messages</p>
  </div>
-</div>
+ </div>
 </body></html>
