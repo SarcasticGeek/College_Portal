@@ -67,7 +67,7 @@
              }
              else
              {
-              echo"non yet";
+              echo'<div class="alert alert-info" role="alert">No Deadlines Yet</div>';;
              }
                ?>         
             </ul>
