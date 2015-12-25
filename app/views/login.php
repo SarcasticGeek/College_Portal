@@ -33,35 +33,6 @@ if ( logged_in() ) {
   left:50px;
   font-family: 'Oswald',sans-serif;
 }
-body
-{
-  background-image: url("assets/img/url.png");
-}
-h1
-{
-  color: white;
-  font-family: 'Oswald',sans-serif;
-}
-label
-{
-  color: #FFFFFF;
-}
-.control-label
-{
-  color: white;
-}
-.form-control
-{
-  color: white;
-}
-input[type="email"]
-{
-  color: black;
-}
-input[type="password"]
-{
-  color: black;
-}
 </style>
 <body>
 
@@ -97,11 +68,11 @@ input[type="password"]
       <div class="container">
         <div class="row">
           <div class="col-md-4">
-            <img src="logo.png"width="80" class="img-responsive img-thumbnail">
+            <img src="assets\img\logo.png" class="img-responsive img-thumbnail">
           </div>
           <div class="col-md-8">
             <h1>Login</h1>
-            <form class="form-horizontal" role="form"  action = "../controllers/loginController.php" method = "post">
+            <form class="form-horizontal" role="form" style="opacity: 0.5" action = "../controllers/loginController.php" method = "post">
               <div class="form-group">
                 <div class="col-sm-2">
                   <label for="inputEmail3" class="control-label">Email</label>
