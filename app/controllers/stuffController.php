@@ -1,8 +1,8 @@
 <?php
 date_default_timezone_set('Africa/Cairo');
 $date = new DateTime('now');
-$format = "Y-m-d";
-$deadline = "2015-12-24";
+$format = "Y-m-d H:i:s";
+$deadline = "2015-12-25 22:00:00";
 $date1  = DateTime::createFromFormat($format, $deadline);
 //$date2  = DateTime::createFromFormat($format, $date);
 echo date_format($date1,"Y-m-d H:i:s");

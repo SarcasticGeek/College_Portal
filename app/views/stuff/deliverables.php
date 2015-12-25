@@ -16,9 +16,9 @@ elseif (isset($_GET['courseid'])) {
     $deliverables= Stuff:: get_Deliverables($_SESSION['person_id'],$course_id);
     if($deliverables != NULL) {
         foreach ($deliverables as $deliverable) {
-            $name = get_name($deliverable);
+            $name = Deliverable::get_name($deliverable);
             echo "<li role='presentation'>";
-            echo '<a href="deliverable.php?courseid=<?=' . $course_id . '?>&deliverable=<?=' . $deliverable . '?>"><?= ' . $name . ' ?></a>';
+            echo '<a href="deliverable.php?courseid=' . $course_id . '&deliverable=' . $deliverable . '"> ' . $name.' </a>';
             echo "</li>";
         }
     }
@@ -50,7 +50,7 @@ elseif (isset($_GET['courseid'])) {
                             </button>
                             <h4 class="modal-title" id="myModalLabel" style="color:black;">Select file to upload</h4>
                           </div>
-                <form class="form-horizontal" role="form"  action="../upload.php" method="get" enctype="multipart/form-data">
+                <form class="form-horizontal" role="form"  action="../upload.php" method="post" enctype="multipart/form-data">
                   <div class="form-group">
                   <input type="hidden" name="whichupload" value="deliverable">
                   <input type="hidden" name="course_id" value="<?= $course_id ?>">

@@ -87,7 +87,26 @@ Class Student
 		}
 
 	}
-	public static function get_Deliverables_Ids($c_id)
+	public static function get_Deliverables_Ids($sd_id,$c_id)
+	{
+		global $conn;
+		$sql = "SELECT d_id FROM upload_d WHERE d_id NOT IN (
+			SELECT d_id FROM submit WHERE sd_id = '$sd_id' AND c_id = '$c_id')";
+		$result = $conn->query($sql)or die('Query failed: ' . mysql_error());
+		if ($result->num_rows > 0)
+		{
+			$d_ids = array();
+			while($row = $result->fetch_assoc()) {
+				array_push($d_ids,$row['d_id']);
+			}
+    		return $d_ids;
+		}
+    	else 
+    	{
+    		return NULL;
+		}
+	}
+	/*public static function get_nonSubmitted_Deliverables($c_id)
 	{
 		global $conn;
 		$sql = "SELECT d_id FROM upload_d WHERE c_id ='$c_id'";
@@ -104,7 +123,7 @@ Class Student
     	{
     		return NULL;
 		}
-	}
+	}*/
 	public static function get_Resources_Ids($c_id)
 	{
 		global $conn;
@@ -134,8 +153,12 @@ Class Student
 				$deadline = $row['deadline'];
 				date_default_timezone_set('Africa/Cairo');
 				$current_date = new DateTime('now');
-				$format = "Y-m-d";
+				$format = "Y-m-d H:i:s";
 				$date1  = DateTime::createFromFormat($format, $deadline);
+				echo date_format($date1,"Y-m-d H:i:s");
+				echo"<br>";
+				echo date_format($current_date,"Y-m-d H:i:s");
+				echo"<br>";
 				if($date1<$current_date)
 				{
 					$sql = "INSERT INTO submit (sd_id, c_id,d_id,ans_link)
@@ -198,7 +221,8 @@ Class Student
 		else
 		{
 			return NULL;
-=======
+		}
+	}
 	public static function get_messages($s_id,$c_id)
 	{
 		global $conn;

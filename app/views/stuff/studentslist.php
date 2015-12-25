@@ -35,6 +35,7 @@
           echo "No answer yet";
           echo "</td>";
         }
+        echo "<tr>";
 
       }
     }

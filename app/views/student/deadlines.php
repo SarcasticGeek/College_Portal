@@ -6,7 +6,7 @@
               <?php
                $course_code = $_GET['course'];
                $course_id = Course::get_id($course_code);
-               $deliverable_ids = Student::get_Deliverables_Ids($course_id);
+               $deliverable_ids = Student::get_Deliverables_Ids($_SESSION['person_id'],$course_id);
                if(!is_null($deliverable_ids))
                {
                foreach($deliverable_ids as $deliverable_id)
