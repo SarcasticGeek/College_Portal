@@ -1,17 +1,25 @@
+<?php 
+if(isset($_GET['course'])){
+$course_code = $_GET['course'];
+  $course_id = Course::get_id($course_code); }
+elseif (isset($_GET['courseid'])) {
+  # code...
+  $course_id = $_GET['courseid'];
+}
+  ?>
 <div class="col-md-4">
-<h2>Sheets</h2>
+<h2>Deliverables</h2>
 
 
 <ul class="nav nav-pills nav-stacked">
 <?php $deliverableIDOfstuff = 1 ; $deliverableNameOfstuff = "Report 1";?>
-  <li role="presentation"><a href="deliverable.php?deliverable=<?= $deliverableIDOfstuff ?>"><?= $deliverableNameOfstuff ?></a></li>
+  <li role="presentation"><a href="deliverable.php?courseid=<?= $course_id ?>&deliverable=<?= $deliverableIDOfstuff ?>"><?= $deliverableNameOfstuff ?></a></li>
  
 
 
 
 <!---uploader -->
-<?php  $Course_id= 1 ; 
-                ?>
+
   <li role="presentation" id="UploadingOfdeliverable">
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example0-modal-sm">   <span class="glyphicon glyphicon-plus-sign" aria-hidden="false"></span> Add deliverable</button>
           <div class="modal fade bs-example0-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel0" >

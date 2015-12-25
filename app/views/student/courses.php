@@ -17,7 +17,7 @@
             </div>
             </div>
             <div class="col-md-8">
-                <h3>CSE322</h3>
+                <h3><?= $_GET['course'] ?></h3>
             </div>
 
             <script>

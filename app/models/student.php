@@ -102,7 +102,7 @@ Class Student
 		}
     	else 
     	{
-    		return 0;
+    		return NULL;
 		}
 	}
 	public static function get_Resources_Ids($c_id)
@@ -114,13 +114,13 @@ Class Student
 		{
 			$r_ids = array();
 			while($row = $result->fetch_assoc()) {
-				array_push($d_ids,$row['r_id']);
+				array_push($r_ids,$row['r_id']);
 			}
     		return $r_ids;
 		}
     	else 
     	{
-    		return 0;
+    		return NULL;
 		}
 	}
 	public static function submit_deliverable($sd_id,$c_id,$d_id,$ans_link)

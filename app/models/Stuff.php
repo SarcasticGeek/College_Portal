@@ -223,5 +223,41 @@ class Stuff
         }
         else return NULL;
     }
+
+    public static function get_Email($id)
+    {
+        global $conn;
+        $sql = "SELECT email FROM person WHERE id ='$id'";
+        $result = $conn->query($sql)or die('Query failed: ' . mysql_error());
+        if ($result->num_rows > 0)
+        {
+            while($row = $result->fetch_assoc()) {
+                $email = $row['email'];
+                return $email;
+            }
+            
+        }
+        else 
+        {
+            return 0;
+        }
+    }
+  public static function get_Resources_Ids($c_id)
+    {
+        global $conn;
+        $sql = "SELECT r_id FROM upload_r WHERE c_id ='$c_id'";
+        $result = $conn->query($sql)or die('Query failed: ' . mysql_error());
+        if ($result->num_rows > 0)
+        {
+            $r_ids = array();
+            while($row = $result->fetch_assoc()) {
+                array_push($r_ids,$row['r_id']);
+            }
+            return $r_ids;
+        }
+        else 
+        {
+            return NULL;
+        }
+    }
 }
-?>

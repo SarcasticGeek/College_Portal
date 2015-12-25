@@ -1,5 +1,10 @@
 <?php 
 require_once '../session.php';
+include'../../models/Stuff.php';
+// require_once '../session.php';
+include'../../models/course.php';
+include'../../models/deliverable.php';
+include'../../models/resource.php';
 
 if ( logged_in() ) {
   $person_id = $_SESSION['person_id'];
