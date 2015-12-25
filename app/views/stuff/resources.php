@@ -14,7 +14,7 @@
                     </button>
                     <h4 class="modal-title" id="myModalLabel" style="color:black;">Upload A Resource</h4>
                   </div>
-        <form class="form-horizontal" role="form" id="UploadingResources"  action="../upload.php" method="get" enctype="multipart/form-data">
+        <form class="form-horizontal" role="form" id="UploadingResources"  action="../upload.php" method="post" enctype="multipart/form-data">
           <input type="hidden" name="whichupload" value="resource">
           <input type="hidden" name="course_id" value="<?= $course_id ?>">
 

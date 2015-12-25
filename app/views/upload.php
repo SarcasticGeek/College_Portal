@@ -25,7 +25,6 @@ if (isset($_POST['whichupload'])) {
 		      
 		      if(empty($errors)==true){
 		         move_uploaded_file($file_tmp,"upload/".$file_name);
-		         echo "Success: Added" . $file_name;
 		         //Success	
 		         $course_id = $_POST['course_id'];
 		         $nameOfres = $_POST['name'];
@@ -74,7 +73,6 @@ if (isset($_POST['whichupload'])) {
 		      
 		      if(empty($errors)==true){
 		         move_uploaded_file($file_tmp,"upload/".$file_name);
-		         echo "Success: Added" . $file_name;
 		         //Success	
 		         $course_id = $_POST['course_id'];
 		         $nameOfres = $_POST['name'];
@@ -113,7 +111,6 @@ if (isset($_POST['whichupload'])) {
 		      
 		      if(empty($errors)==true){
 		         move_uploaded_file($file_tmp,"upload/".$file_name);
-		         echo "Success: Added" . $file_name;
 		         //Success	
 		         $course_id = $_POST['course_id'];
 		         $deliverableid = $_POST['deliverableid'];
