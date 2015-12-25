@@ -11,6 +11,7 @@
                  echo"<li>";
                  echo'<a href="?course='.$course_code.'">'.$course_name.'</a>';
                  echo"</li>";
+
                }
               ?>
               </ul>
@@ -25,7 +26,7 @@
                   $(this).tab('show')
                 });
             </script>
-            <div>
+            <div class="col-md-8">
               <!-- Nav tabs -->
               <ul class="nav nav-tabs" role="tablist">
                 <li role="presentation" class="active">

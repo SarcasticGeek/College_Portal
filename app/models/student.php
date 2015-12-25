@@ -1,5 +1,5 @@
 <?php
-include $_SERVER["DOCUMENT_ROOT"] . "College_Portal/dbconnect.php";
+include $_SERVER["DOCUMENT_ROOT"] . "/College_Portal/dbconnect.php";
 Class Student
 {
 	public static function is_Student($id)
@@ -34,11 +34,11 @@ Class Student
     		return 0;
 		}
 	}
-	public static function ask($id,$t_id,$question)
+	public static function ask($id,$c_id,$question)
 	{
 		global $conn;
-		$sql = "INSERT INTO ask (s_id, t_id, question)
-		VALUES ('$id', '$t_id', '$question')";
+		$sql = "INSERT INTO ask (s_id, c_id, question)
+		VALUES ('$id', '$c_id', '$question')";
 		if ($conn->query($sql) === TRUE)
 		{
     		return TRUE;
@@ -180,40 +180,49 @@ Class Student
     		return 0;
 		}
 	}
+
+
+	public static function get_name($id)
+	{
+		global $conn;
+		$sql = "SELECT fname,mname,lname FROM person WHERE id ='$id'";
+		$result = $conn->query($sql)or die('Query failed: ' . mysql_error());
+		if ($result->num_rows > 0)
+		{
+			while($row = $result->fetch_assoc()) {
+				$name = $row['fname']." ".$row['mname']." ".$row['lname'];
+				return $name;
+			}
+
+		}
+		else
+		{
+			return NULL;
+=======
 	public static function get_messages($s_id,$c_id)
 	{
 		global $conn;
-    	$sql = "SELECT st_id FROM teach WHERE c_id ='$c_id'";
-    	$result = $conn->query($sql)or die('Query failed: ' . mysql_error());
-		if ($result->num_rows > 0)
-		{
-			$ta_ids = array();
-			while($row = $result->fetch_assoc()) {
-				array_push($ta_ids,$row['st_id']);
-			}
-			$messages = array();
-    		foreach($ta_ids as $ta_id)
-    		{
-    			$sqlx = "SELECT * FROM ask WHERE t_id ='$ta_id' AND s_id = '$s_id'";
-    			$resultx = $conn->query($sqlx)or die('Query failed: ' . mysql_error());
-				if ($resultx->num_rows > 0)
+    	$sqlx = "SELECT * FROM ask WHERE s_id = '$s_id' AND c_id = '$c_id'";
+    	$resultx = $conn->query($sqlx)or die('Query failed: ' . mysql_error());
+    	$messages = array();
+			if ($resultx->num_rows > 0)
 				{
 					while($rowx= $resultx->fetch_assoc()) {
                    $message = array(
                    	"s_id" =>$rowx['s_id'],
-                   	"t_id" =>$rowx['t_id'],
                    	"question" =>$rowx['question'],
                    	"answer" =>$rowx['answer']
                    	);
                    array_push($messages,$message);
                }
-				}
-    		}
-    		return $messages;
-		}
-    	else 
+    		
+    			return $messages;
+			   }
+    	
+		else 
     	{
     		return NULL;
+
 		}
 	}
 }

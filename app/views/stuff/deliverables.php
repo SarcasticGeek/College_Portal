@@ -12,9 +12,28 @@ elseif (isset($_GET['courseid'])) {
 
 
 <ul class="nav nav-pills nav-stacked">
-<?php $deliverableIDOfstuff = 1 ; $deliverableNameOfstuff = "Report 1";?>
-  <li role="presentation"><a href="deliverable.php?courseid=<?= $course_id ?>&deliverable=<?= $deliverableIDOfstuff ?>"><?= $deliverableNameOfstuff ?></a></li>
- 
+    <?php
+    $deliverables= Stuff:: get_Deliverables($_SESSION['person_id'],$course_id);
+    if($deliverables != NULL) {
+        foreach ($deliverables as $deliverable) {
+            $name = get_name($deliverable);
+            echo "<li role='presentation'>";
+            echo '<a href="deliverable.php?courseid=<?=' . $course_id . '?>&deliverable=<?=' . $deliverable . '?>"><?= ' . $name . ' ?></a>';
+            echo "</li>";
+        }
+    }
+    else
+        echo "NO DELIVERABLES";
+    //$_GET["course"];
+    //include $_SERVER["DOCUMENT_ROOT"] . "/College_Portal/app/models/Stuff.php";
+    //$courses = Stuff::get_Courses($_SESSION['person_id']);
+    //foreach ($courses as $course) {
+      //  $deliverables= Stuff:: get_Deliverables($_SESSION['person_id'],$course);
+
+    //}
+    ?>
+
+
 
 
 

@@ -1,5 +1,5 @@
 <?php
-include $_SERVER["DOCUMENT_ROOT"] . "College_Portal/dbconnect.php";
+include $_SERVER["DOCUMENT_ROOT"] . "/College_Portal/dbconnect.php";
 class Stuff
 {
     public static function is_stuff($id)
@@ -17,20 +17,55 @@ class Stuff
         }
 
     }
-        public static function get_Courses($id)
+    public static function get_Courses($id)
     {
         global $conn;
         $sql = "SELECT c_id FROM teach WHERE st_id ='$id'";
+        $result = $conn->query($sql) or die('Query failed: ' . mysql_error());
+        if ($result->num_rows > 0) {
+            $courses = array();
+            while ($row = $result->fetch_assoc()) {
+                array_push($courses, $row['c_id']);
+            }
+            return $courses;
+        } else {
+            return 0;
+        }
+    }
+
+    public static function get_students($c_id)
+    {
+        global $conn;
+        $sql = "SELECT student_id FROM joined WHERE c_id ='$c_id'";
         $result = $conn->query($sql)or die('Query failed: ' . mysql_error());
         if ($result->num_rows > 0)
         {
-            $courses = array();
+            $students = array();
             while($row = $result->fetch_assoc()) {
-                array_push($courses,$row['c_id']);
+                array_push($students,$row['student_id']);
             }
-            return $courses;
+            return $students;
         }
-        else 
+        else
+        {
+            return 0;
+        }
+    }
+
+    public static function get_Deliverables($id,$c_id)
+    {
+        global $conn;
+        $sql = "SELECT d_id FROM upload_d WHERE st_id = '$id' AND c_id ='$c_id'";
+        $result = $conn->query($sql)or die('Query failed: ' . mysql_error());
+        if ($result->num_rows > 0)
+        {
+            $d_ids = array();
+            while($row = $result->fetch_assoc()) {
+                array_push($d_ids,$row['d_id']);
+            }
+            return $d_ids;
+        }
+        else
         {
             return 0;
         }
@@ -202,6 +237,19 @@ class Stuff
                 array_push($submitted, $data);
             }
             return $submitted;
+        }
+        else return NULL;
+    }
+
+    public static function get_answerLink($s_id,$c_id,$d_id)
+    {
+        global $conn;
+        $submitted = array();
+        $sql = "SELECT ans_link FROM submit WHERE sd_id = '$s_id' AND c_id = '$c_id' AND d_id = '$d_id'";
+        $result = mysqli_query($conn, $sql);
+        if (mysqli_num_rows($result) > 0) {
+            $row = mysqli_fetch_assoc($result);
+            return $row["ans_link"];
         }
         else return NULL;
     }

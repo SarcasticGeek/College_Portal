@@ -20,7 +20,7 @@
                  $forDivs = str_replace(' ', '', strtolower($ay7aga));
                  echo'<li class="media">';
                  echo'<div class="media-left">';
-                 echo '<h3 class="text-center text-primary">'.$Course_code.' </h3>';
+                 echo '<h3 class="text-center text-primary">'.$course_code.' </h3>';
                  echo'</div>';
                  echo'<div class="media-body">';
                  echo'<h4 class="media-heading"><a href=" '.$link_delv.'" target="_blank">'.$deliverable_Name.'</a></h4>';
@@ -28,8 +28,8 @@
                  
                  echo'<br>';
 
-                 echo'<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-<?='.$forDivs.' ?>-modal-sm">   <span class="glyphicon glyphicon-plus-sign" aria-hidden="false"></span> Upload</button>';
-                 echo'<div class="modal fade bs- '.$forDivs.' -modal-sm" tabindex="-1" role="dialog" aria-labelledby=" '.$forDivs.'">';
+                 echo'<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-'.$forDivs.'-modal-sm">   <span class="glyphicon glyphicon-plus-sign" aria-hidden="false"></span> Upload</button>';
+                 echo'<div class="modal fade bs-'.$forDivs.'-modal-sm" tabindex="-1" role="dialog" aria-labelledby=" '.$forDivs.'">';
                  echo'<div class="modal-dialog modal-sm">';
                  echo'<div class="modal-content">';
                  echo'<div class="modal-header">';
@@ -39,10 +39,10 @@
                  echo'</div>';
                  echo'<form class="form-horizontal" role="form" action="../upload.php" method="post" enctype="multipart/form-data">';
                  echo'<input type="hidden" name="whichupload" value="deadline">';
-                 echo'<input type="hidden" name="courseid" value=" '.$Course_id.'>';
+                 echo'<input type="hidden" name="courseid" value=" '.$course_id.'>';
                  echo'<input type="hidden" name="deliverableid" value=" '.$deliverable_id.' ">';
                  echo'<input type="hidden" name="whichupload" value="deadline">';
-                 echo'<input type="hidden" name="courseid" value=" '.$Course_id.' ">';
+                 echo'<input type="hidden" name="courseid" value=" '.$course_id.' ">';
                  echo'<input type="hidden" name="deliverableid" value=" '.$deliverable_id.'">';
                  echo'<div class="form-group">';
                  echo'<div class="col-sm-12">';

@@ -11,8 +11,8 @@ if (isset($_POST['whichupload'])) {
 		      $file_name = $_FILES['fileToUpload']['name'];
 		      $file_size =$_FILES['fileToUpload']['size'];
 		      $file_tmp =$_FILES['fileToUpload']['tmp_name'];
-		      $file_ext=strtolower(end(explode('.',$_FILES['fileToUpload']['name'])));
-		      
+		      //$file_ext=strtolower(end(explode('.',$_FILES['fileToUpload']['name'])));
+		      $file_ext = pathinfo($_FILES['fileToUpload']['name'])['extension'];
 		      $expensions= array("pdf");
 		      
 		      if(in_array($file_ext,$expensions)=== false){
@@ -59,7 +59,8 @@ if (isset($_POST['whichupload'])) {
 		      $file_name = $_FILES['fileToUpload']['name'];
 		      $file_size =$_FILES['fileToUpload']['size'];
 		      $file_tmp =$_FILES['fileToUpload']['tmp_name'];
-		      $file_ext=strtolower(end(explode('.',$_FILES['fileToUpload']['name'])));
+		      $file_ext = pathinfo($_FILES['fileToUpload']['name'])['extension'];
+		      //$file_ext=strtolower(end(explode('.',$_FILES['fileToUpload']['name'])));
 		      
 		      $expensions= array("pdf");
 		      
@@ -97,7 +98,8 @@ if (isset($_POST['whichupload'])) {
 		      $file_name = $_FILES['fileToUpload']['name'];
 		      $file_size =$_FILES['fileToUpload']['size'];
 		      $file_tmp =$_FILES['fileToUpload']['tmp_name'];
-		      $file_ext=strtolower(end(explode('.',$_FILES['fileToUpload']['name'])));
+		      //$file_ext=strtolower(end(explode('.',$_FILES['fileToUpload']['name'])));
+		      $file_ext = pathinfo($_FILES['fileToUpload']['name'])['extension'];
 		      
 		      $expensions= array("pdf");
 		      
@@ -112,11 +114,11 @@ if (isset($_POST['whichupload'])) {
 		      if(empty($errors)==true){
 		         move_uploaded_file($file_tmp,"upload/".$file_name);
 		         //Success	
-		         $course_id = $_POST['course_id'];
+		         $course_id = $_POST['courseid'];
 		         $deliverableid = $_POST['deliverableid'];
 		         $studentId = $_SESSION['person_id'];
 		         $fileLink = "http://localhost/college_portal/app/views/upload/" . $file_name;
-		         $msgfromModel =  Student::submit_deliverable($studentId,$coursenid,$deliverableid,$ans_link);
+		         $msgfromModel =  Student::submit_deliverable($studentId,$course_id,$deliverableid,$fileLink);
 		         echo $msgfromModel;
 		      }
 		      else{
