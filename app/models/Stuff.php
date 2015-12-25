@@ -34,6 +34,7 @@ class Stuff
         {
             return 0;
         }
+    }
 
     public static function get_phone($id)
     {
