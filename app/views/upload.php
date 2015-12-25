@@ -114,11 +114,11 @@ if (isset($_POST['whichupload'])) {
 		      if(empty($errors)==true){
 		         move_uploaded_file($file_tmp,"upload/".$file_name);
 		         //Success	
-		         $course_id = $_POST['course_id'];
+		         $course_id = $_POST['courseid'];
 		         $deliverableid = $_POST['deliverableid'];
 		         $studentId = $_SESSION['person_id'];
 		         $fileLink = "http://localhost/college_portal/app/views/upload/" . $file_name;
-		         $msgfromModel =  Student::submit_deliverable($studentId,$coursenid,$deliverableid,$ans_link);
+		         $msgfromModel =  Student::submit_deliverable($studentId,$course_id,$deliverableid,$fileLink);
 		         echo $msgfromModel;
 		      }
 		      else{
