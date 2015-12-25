@@ -5,6 +5,8 @@ include'../../models/student.php';
 include'../../models/course.php';
 include'../../models/deliverable.php';
 include'../../models/resource.php';
+include'../../models/Persons.php';
+
 
 if ( logged_in() ) {
   $person_id = $_SESSION['person_id'];
@@ -66,9 +68,14 @@ if ( logged_in() ) {
     <footer class="section section-primary">
       <div class="container">
         <div class="row">
+        
           <div class="col-sm-6">
             <h1>Send Message to Stuff</h1>
             <button type="button" class="btn btn-lg btn-success" data-toggle="modal" data-target="#ToStuff">press here</button>
+            <?php
+             if(isset($_GET['msg']))
+            echo ' <div class="col-sm-6"><div class="alert alert-info" role="alert">'.$_GET['msg'].'</div></div>';
+            ?>
             <!-- Modal -->
             <div class="modal fade" id="ToStuff" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
               <div class="modal-dialog" role="document">
@@ -77,10 +84,13 @@ if ( logged_in() ) {
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">×</span>
                     </button>
-                    <h4 class="modal-title" id="myModalLabel" style="color:black;">Message To Stuff of course CSE223</h4>
+                    <?php
+                    echo'<h4 class="modal-title" id="myModalLabel" style="color:black;">Message To Stuff of course '.$_GET['course'].'</h4>';
+                    ?>
                   </div>
                   <div class="modal-body">
-                    <form class="form-horizontal" role="form" action="send.php" >
+                    <form class="form-horizontal" role="form" action="../../controllers/sendMessageController.php"  method ="post">
+                     <input type = "hidden" name="course_code" value ="<?=$_GET['course']?>">
                       <div class="form-group">
                         <div class="col-sm-2">
                           <label for="inputPassword3" class="control-label">Message</label>
@@ -103,6 +113,7 @@ if ( logged_in() ) {
               </div>
             </div>
           </div>
+          
         </div>
       </div>
     </footer>

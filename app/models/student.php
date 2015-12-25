@@ -34,11 +34,11 @@ Class Student
     		return 0;
 		}
 	}
-	public static function ask($id,$t_id,$question)
+	public static function ask($id,$c_id,$question)
 	{
 		global $conn;
-		$sql = "INSERT INTO ask (s_id, t_id, question)
-		VALUES ('$id', '$t_id', '$question')";
+		$sql = "INSERT INTO ask (s_id, c_id, question)
+		VALUES ('$id', '$c_id', '$question')";
 		if ($conn->query($sql) === TRUE)
 		{
     		return TRUE;
@@ -181,6 +181,7 @@ Class Student
 		}
 	}
 
+
 	public static function get_name($id)
 	{
 		global $conn;
@@ -197,6 +198,31 @@ Class Student
 		else
 		{
 			return NULL;
+=======
+	public static function get_messages($s_id,$c_id)
+	{
+		global $conn;
+    	$sqlx = "SELECT * FROM ask WHERE s_id = '$s_id' AND c_id = '$c_id'";
+    	$resultx = $conn->query($sqlx)or die('Query failed: ' . mysql_error());
+    	$messages = array();
+			if ($resultx->num_rows > 0)
+				{
+					while($rowx= $resultx->fetch_assoc()) {
+                   $message = array(
+                   	"s_id" =>$rowx['s_id'],
+                   	"question" =>$rowx['question'],
+                   	"answer" =>$rowx['answer']
+                   	);
+                   array_push($messages,$message);
+               }
+    		
+    			return $messages;
+			   }
+    	
+		else 
+    	{
+    		return NULL;
+
 		}
 	}
 }

@@ -53,7 +53,7 @@ elseif (isset($_GET['courseid'])) {
                 <form class="form-horizontal" role="form"  action="../upload.php" method="get" enctype="multipart/form-data">
                   <div class="form-group">
                   <input type="hidden" name="whichupload" value="deliverable">
-                  <input type="hidden" name="course_id" value="<?= $Course_id ?>">
+                  <input type="hidden" name="course_id" value="<?= $course_id ?>">
                     <div class="col-sm-12">
                       <input type="file" id="fileToUpload" class="form-control" name="fileToUpload">
                     </div>
