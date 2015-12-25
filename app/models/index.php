@@ -1,8 +1,8 @@
 <?php
-foreach (glob("*.php") as $filename)
-{
-    include $filename;
-}
+// foreach (glob("*.php") as $filename)
+// {
+//     include $filename;
+// }
 
-//header("Location: ..");
-//exit();
+header("Location: ..");
+exit();

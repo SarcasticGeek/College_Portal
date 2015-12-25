@@ -1,7 +1,9 @@
 <?php
 require_once 'session.php';
-require_once 'models/index.php';
-if (isset($_POST)) {
+require_once '../models/student.php';
+require_once '../models/Stuff.php';
+
+if (isset($_POST['whichupload'])) {
 	if ($_POST['whichupload'] == "resource") {
 		# INPUTS : ?whichupload=resource&course_id=&fileToUpload=&name=&description=&type=sheet
 		if(isset($_FILES['fileToUpload'])){

@@ -1,5 +1,5 @@
 <?php
-include $_SERVER["DOCUMENT_ROOT"] . "College_Portal/dbconnect.php";
+include $_SERVER["DOCUMENT_ROOT"] . "/College_Portal/dbconnect.php";
 class Stuff
 {
     public static function is_stuff($id)
@@ -33,7 +33,7 @@ class Stuff
         }
     }
 
-    public static function get_Deliverables_Ids($id,$c_id)
+    public static function get_Deliverables($id,$c_id)
     {
         global $conn;
         $sql = "SELECT d_id FROM upload_d WHERE id = '$id' AND c_id ='$c_id'";
@@ -239,5 +239,23 @@ class Stuff
         }
         else return NULL;
     }
+
+    public static function get_Email($id)
+    {
+        global $conn;
+        $sql = "SELECT email FROM person WHERE id ='$id'";
+        $result = $conn->query($sql)or die('Query failed: ' . mysql_error());
+        if ($result->num_rows > 0)
+        {
+            while($row = $result->fetch_assoc()) {
+                $email = $row['email'];
+                return $email;
+            }
+            
+        }
+        else 
+        {
+            return 0;
+        }
+    }
 }
-?>

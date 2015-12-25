@@ -1,12 +1,22 @@
 <?php
 require_once 'session.php';
+include'../models/student.php';
+include'../models/Stuff.php';
 
+// require_once '../session.php';
+include'../models/course.php';
 if ( logged_in() ) {
   $person_id = $_SESSION['person_id'];
   if($_SESSION['studentOrNot']/*checking by db if stud or stuff*/){
-    header("Location:student");
+     $courses = Student::get_Courses($_SESSION['person_id']);
+    $course = $courses[0];
+    $course_code = Course::get_name_code($course);
+    header("Location:student/?course=".$course_code);
   }else{
-        header("Location:stuff");
+    $courses = Stuff::get_Courses($_SESSION['person_id']);
+    $course = $courses[0];
+    $course_code = Course::get_name_code($course);
+        header("Location:stuff/?course=".$course_code);
   }
 }
 ?>

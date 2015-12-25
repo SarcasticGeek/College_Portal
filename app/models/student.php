@@ -1,5 +1,5 @@
 <?php
-include $_SERVER["DOCUMENT_ROOT"] . "College_Portal/dbconnect.php";
+include $_SERVER["DOCUMENT_ROOT"] . "/College_Portal/dbconnect.php";
 Class Student
 {
 	public static function is_Student($id)
@@ -102,7 +102,7 @@ Class Student
 		}
     	else 
     	{
-    		return 0;
+    		return NULL;
 		}
 	}
 	public static function get_Resources_Ids($c_id)
@@ -114,13 +114,13 @@ Class Student
 		{
 			$r_ids = array();
 			while($row = $result->fetch_assoc()) {
-				array_push($d_ids,$row['r_id']);
+				array_push($r_ids,$row['r_id']);
 			}
     		return $r_ids;
 		}
     	else 
     	{
-    		return 0;
+    		return NULL;
 		}
 	}
 	public static function submit_deliverable($sd_id,$c_id,$d_id,$ans_link)
@@ -160,5 +160,24 @@ Class Student
     		return "Deadline not found =/";
 		}
 		
+	}
+
+	public static function get_Email($id)
+	{
+		global $conn;
+    	$sql = "SELECT email FROM person WHERE id ='$id'";
+    	$result = $conn->query($sql)or die('Query failed: ' . mysql_error());
+		if ($result->num_rows > 0)
+		{
+			while($row = $result->fetch_assoc()) {
+				$email = $row['email'];
+				return $email;
+			}
+    		
+		}
+    	else 
+    	{
+    		return 0;
+		}
 	}
 }

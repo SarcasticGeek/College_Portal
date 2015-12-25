@@ -1,5 +1,5 @@
   <?php
-  $studemail = "118866@eng.asu" ?>
+  $studemail = Student::get_Email($_SESSION['person_id']);?>
 
 
 

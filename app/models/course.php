@@ -1,5 +1,5 @@
 <?php
-include $_SERVER["DOCUMENT_ROOT"] . "College_Portal/dbconnect.php";
+include $_SERVER["DOCUMENT_ROOT"] . "/College_Portal/dbconnect.php";
 
 class Course
  {
@@ -15,7 +15,18 @@ class Course
       return NULL;
     }
   }
-
+  public static function get_id($codename) {
+    global $conn;
+    $sql = "SELECT id FROM course where name_code = '$codename'";
+    $result = $conn->query($sql)or die('Query failed: ' . mysql_error());
+    if($result->num_rows >0){
+      $row = mysqli_fetch_assoc($result);
+      return $row['id'];
+    }
+    else{
+      return NULL;
+    }
+  }
   public static function get_name_code($c_id) {
     global $conn;
     $sql = "SELECT name_code FROM course where id = '$c_id'";

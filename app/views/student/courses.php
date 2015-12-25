@@ -3,7 +3,7 @@
               <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Courses <span class="glyphicon glyphicon-chevron-down"></span></a>
               <ul class="dropdown-menu" role="menu">
               <?php
-              
+
                $courses = Student::get_Courses($_SESSION['person_id']);
                foreach ($courses as $course) {
                  $course_code = Course::get_name_code($course);
@@ -17,7 +17,7 @@
             </div>
             </div>
             <div class="col-md-8">
-                <h3>CSE322</h3>
+                <h3><?= $_GET['course'] ?></h3>
             </div>
 
             <script>

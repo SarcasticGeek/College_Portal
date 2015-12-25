@@ -4,7 +4,12 @@
 
 <ul class="nav nav-pills nav-stacked">
     <?php
+    //include $_SERVER["DOCUMENT_ROOT"] . "/College_Portal/app/models/Stuff.php";
+    //$courses = Stuff::get_Courses($_SESSION['person_id']);
+    //foreach ($courses as $course) {
+      //  $deliverables= Stuff:: get_Deliverables($_SESSION['person_id'],$course);
 
+    //}
     ?>
 <?php $deliverableIDOfstuff = 1 ; $deliverableNameOfstuff = "Report 1";?>
   <li role="presentation"><a href="deliverable.php?deliverable=<?= $deliverableIDOfstuff ?>"><?= $deliverableNameOfstuff ?></a></li>

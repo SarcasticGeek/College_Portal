@@ -14,7 +14,9 @@
         <div class="collapse navbar-collapse" id="navbar-ex-collapse">
           <ul class="nav navbar-nav navbar-right">
             <li class="active">
-              <a href="#">Home of Dr Medhat</a>
+            <?php   $taemail = Stuff::get_Email($_SESSION['person_id']);?>
+
+              <a href="#">Home of <?= $taemail ?></a>
             </li>
             <li >
               <a href="messages.php">Messages from students</a>
