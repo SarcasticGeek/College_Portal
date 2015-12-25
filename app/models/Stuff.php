@@ -33,10 +33,29 @@ class Stuff
         }
     }
 
+    public static function get_students($c_id)
+    {
+        global $conn;
+        $sql = "SELECT student_id FROM joined WHERE c_id ='$c_id'";
+        $result = $conn->query($sql)or die('Query failed: ' . mysql_error());
+        if ($result->num_rows > 0)
+        {
+            $students = array();
+            while($row = $result->fetch_assoc()) {
+                array_push($students,$row['student_id']);
+            }
+            return $students;
+        }
+        else
+        {
+            return 0;
+        }
+    }
+
     public static function get_Deliverables($id,$c_id)
     {
         global $conn;
-        $sql = "SELECT d_id FROM upload_d WHERE id = '$id' AND c_id ='$c_id'";
+        $sql = "SELECT d_id FROM upload_d WHERE st_id = '$id' AND c_id ='$c_id'";
         $result = $conn->query($sql)or die('Query failed: ' . mysql_error());
         if ($result->num_rows > 0)
         {
@@ -221,6 +240,19 @@ class Stuff
         }
         else return NULL;
     }
+
+    public static function get_answerLink($s_id,$c_id,$d_id)
+    {
+        global $conn;
+        $submitted = array();
+        $sql = "SELECT ans_link FROM submit WHERE sd_id = '$s_id' AND c_id = '$c_id' AND d_id = '$d_id'";
+        $result = mysqli_query($conn, $sql);
+        if (mysqli_num_rows($result) > 0) {
+            $row = mysqli_fetch_assoc($result);
+            return $row["ans_link"];
+        }
+        else return NULL;
+    }
     public static function get_nonSubmitted($c_id,$d_id)
     {
         global $conn;
@@ -256,6 +288,24 @@ class Stuff
         else 
         {
             return 0;
+        }
+    }
+  public static function get_Resources_Ids($c_id)
+    {
+        global $conn;
+        $sql = "SELECT r_id FROM upload_r WHERE c_id ='$c_id'";
+        $result = $conn->query($sql)or die('Query failed: ' . mysql_error());
+        if ($result->num_rows > 0)
+        {
+            $r_ids = array();
+            while($row = $result->fetch_assoc()) {
+                array_push($r_ids,$row['r_id']);
+            }
+            return $r_ids;
+        }
+        else 
+        {
+            return NULL;
         }
     }
 }

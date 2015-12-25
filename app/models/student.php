@@ -180,4 +180,23 @@ Class Student
     		return 0;
 		}
 	}
+
+	public static function get_name($id)
+	{
+		global $conn;
+		$sql = "SELECT fname,mname,lname FROM person WHERE id ='$id'";
+		$result = $conn->query($sql)or die('Query failed: ' . mysql_error());
+		if ($result->num_rows > 0)
+		{
+			while($row = $result->fetch_assoc()) {
+				$name = $row['fname']." ".$row['mname']." ".$row['lname'];
+				return $name;
+			}
+
+		}
+		else
+		{
+			return NULL;
+		}
+	}
 }

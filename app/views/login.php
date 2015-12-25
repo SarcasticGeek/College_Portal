@@ -43,6 +43,20 @@ if ( logged_in() ) {
   left:50px;
   font-family: 'Oswald',sans-serif;
 }
+body
+{
+  background-image: url("assets/img/url.png");
+}
+h1
+{
+  font-family: 'Oswald',sans-serif;
+  color: white;
+
+}
+.control-label
+{
+  color: white;
+}
 </style>
 <body>
 
@@ -78,11 +92,11 @@ if ( logged_in() ) {
       <div class="container">
         <div class="row">
           <div class="col-md-4">
-            <img src="assets\img\logo.png" class="img-responsive img-thumbnail">
+            <img src="logo.png"width="80" class="img-responsive img-thumbnail">
           </div>
           <div class="col-md-8">
             <h1>Login</h1>
-            <form class="form-horizontal" role="form" style="opacity: 0.5" action = "../controllers/loginController.php" method = "post">
+            <form class="form-horizontal" role="form"  action = "../controllers/loginController.php" method = "post">
               <div class="form-group">
                 <div class="col-sm-2">
                   <label for="inputEmail3" class="control-label">Email</label>

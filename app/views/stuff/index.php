@@ -5,6 +5,7 @@ include'../../models/Stuff.php';
 include'../../models/course.php';
 include'../../models/deliverable.php';
 include'../../models/resource.php';
+include'../../models/student.php';
 
 if ( logged_in() ) {
   $person_id = $_SESSION['person_id'];

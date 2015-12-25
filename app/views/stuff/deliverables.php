@@ -1,9 +1,30 @@
+<?php 
+if(isset($_GET['course'])){
+$course_code = $_GET['course'];
+  $course_id = Course::get_id($course_code); }
+elseif (isset($_GET['courseid'])) {
+  # code...
+  $course_id = $_GET['courseid'];
+}
+  ?>
 <div class="col-md-4">
 <h2>Deliverables</h2>
 
 
 <ul class="nav nav-pills nav-stacked">
     <?php
+    $deliverables= Stuff:: get_Deliverables($_SESSION['person_id'],$course_id);
+    if($deliverables != NULL) {
+        foreach ($deliverables as $deliverable) {
+            $name = get_name($deliverable);
+            echo "<li role='presentation'>";
+            echo '<a href="deliverable.php?courseid=<?=' . $course_id . '?>&deliverable=<?=' . $deliverable . '?>"><?= ' . $name . ' ?></a>';
+            echo "</li>";
+        }
+    }
+    else
+        echo "NO DELIVERABLES";
+    //$_GET["course"];
     //include $_SERVER["DOCUMENT_ROOT"] . "/College_Portal/app/models/Stuff.php";
     //$courses = Stuff::get_Courses($_SESSION['person_id']);
     //foreach ($courses as $course) {
@@ -11,16 +32,13 @@
 
     //}
     ?>
-<?php $deliverableIDOfstuff = 1 ; $deliverableNameOfstuff = "Report 1";?>
-  <li role="presentation"><a href="deliverable.php?deliverable=<?= $deliverableIDOfstuff ?>"><?= $deliverableNameOfstuff ?></a></li>
 
 
 
 
 
 <!---uploader -->
-<?php  $Course_id= 1 ; 
-                ?>
+
   <li role="presentation" id="UploadingOfdeliverable">
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example0-modal-sm">   <span class="glyphicon glyphicon-plus-sign" aria-hidden="false"></span> Add deliverable</button>
           <div class="modal fade bs-example0-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel0" >
