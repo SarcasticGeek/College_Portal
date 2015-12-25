@@ -66,4 +66,17 @@ else
   return NULL;
 }
 }
+public static function get_name($id)
+{
+  global $conn;
+  $query = "SELECT fname,mname,lname FROM person WHERE id='$id'";
+  $result = $conn->query($query) or die('Query failed: ' . mysql_error());
+  if($result->num_rows >0)
+  {
+     while ($line = $result->fetch_assoc())
+     {
+        return $line['fname'].' '.$line['mname'].' '.$line['lname'];
+     }
+  }
+}
 }

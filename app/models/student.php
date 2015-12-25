@@ -180,4 +180,40 @@ Class Student
     		return 0;
 		}
 	}
+	public static function get_messages($s_id,$c_id)
+	{
+		global $conn;
+    	$sql = "SELECT st_id FROM teach WHERE c_id ='$c_id'";
+    	$result = $conn->query($sql)or die('Query failed: ' . mysql_error());
+		if ($result->num_rows > 0)
+		{
+			$ta_ids = array();
+			while($row = $result->fetch_assoc()) {
+				array_push($ta_ids,$row['st_id']);
+			}
+			$messages = array();
+    		foreach($ta_ids as $ta_id)
+    		{
+    			$sqlx = "SELECT * FROM ask WHERE t_id ='$ta_id' AND s_id = '$s_id'";
+    			$resultx = $conn->query($sqlx)or die('Query failed: ' . mysql_error());
+				if ($resultx->num_rows > 0)
+				{
+					while($rowx= $resultx->fetch_assoc()) {
+                   $message = array(
+                   	"s_id" =>$rowx['s_id'],
+                   	"t_id" =>$rowx['t_id'],
+                   	"question" =>$rowx['question'],
+                   	"answer" =>$rowx['answer']
+                   	);
+                   array_push($messages,$message);
+               }
+				}
+    		}
+    		return $messages;
+		}
+    	else 
+    	{
+    		return NULL;
+		}
+	}
 }
