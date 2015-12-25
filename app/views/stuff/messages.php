@@ -5,6 +5,7 @@ include'../../models/Stuff.php';
 include'../../models/course.php';
 include'../../models/deliverable.php';
 include'../../models/resource.php';
+include'../../models/Persons.php';
 
 if ( logged_in() ) {
   $person_id = $_SESSION['person_id'];
@@ -74,11 +75,42 @@ if ( logged_in() ) {
  <?php include 'header.php'; ?>
  <div class = "newmessages">
 <h1>New messages</h1>
- <div class="new">
-
+ 
  	
-     <p > How are you? by Mohamed Elkashif <a type="link" class="primary" data-toggle="modal" data-target="#ToStuff">Answer</a>
-        <div class="modal fade" id="ToStuff" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+     <p > <?php
+ // $course_code = $_GET['course'];
+  //$course_id = Course::get_id($course_code);
+    // $course_id = $_GET['Stuff'];
+     $courses_id = Stuff::get_Courses($_SESSION['person_id']);
+     if(!empty($courses_id))
+     {
+        foreach ($courses_id as $course_id) {
+            $messages = Stuff::getMessages($course_id);
+            //$studen_name = Persons::get_name($course_id);
+            foreach ($messages as $message) {
+                
+
+                $question=$message['question'];
+              echo  '<div class="new">';
+                echo'<h5 >'.$question. ' <a type="link" class="primary" data-toggle="modal" data-target="#ToStuff">Answer</a></h5>';
+              echo  '</div>';
+
+            }
+            
+        
+        
+        }
+     }
+ 
+  
+
+  else
+  {
+    echo "no messages yet";
+  }
+
+?> 
+<div class="modal fade" id="ToStuff" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
               <div class="modal-dialog" role="document">
                 <div class="modal-content">
                   <div class="modal-header">
@@ -107,4 +139,5 @@ if ( logged_in() ) {
                   </div>
  </div>
  </div>
+ 
 </body></html>

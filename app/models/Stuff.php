@@ -260,4 +260,32 @@ class Stuff
             return NULL;
         }
     }
+
+    public static function getMessages($c_id)
+    {
+        global $conn;
+        $sql = "SELECT * FROM ask WHERE c_id ='$c_id'";
+        $result = $conn->query($sql)or die('Query failed: ' . mysql_error());
+        if ($result->num_rows > 0)
+        {
+            $messages = array();
+            while ($row = $result->fetch_assoc()) {
+                $data = array(
+
+                    "student_id" => $row['s_id'],
+                    "question" => $row['question']
+                );
+                array_push($messages, $data);
+            }
+            return $messages;
+        }
+        else 
+        {
+            return NULL;
+        }
+    }
+
+
+
+    
 }
