@@ -117,7 +117,8 @@ if (isset($_POST)) {
 		         $deliverableid = $_POST['deliverableid'];
 		         $studentId = $_SESSION['person_id'];
 		         $fileLink = "http://localhost/college_portal/app/views/upload/" . $file_name;
-		         // submit_deliverable($sd_id,$c_id,$d_id,$ans_link)
+		         $msgfromModel =  Student::submit_deliverable($studentId,$coursenid,$deliverableid,$ans_link);
+		         echo $msgfromModel;
 		      }
 		      else{
 		         echo "<pre>";
