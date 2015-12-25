@@ -242,4 +242,22 @@ class Stuff
             return 0;
         }
     }
+  public static function get_Resources_Ids($c_id)
+    {
+        global $conn;
+        $sql = "SELECT r_id FROM upload_r WHERE c_id ='$c_id'";
+        $result = $conn->query($sql)or die('Query failed: ' . mysql_error());
+        if ($result->num_rows > 0)
+        {
+            $r_ids = array();
+            while($row = $result->fetch_assoc()) {
+                array_push($r_ids,$row['r_id']);
+            }
+            return $r_ids;
+        }
+        else 
+        {
+            return NULL;
+        }
+    }
 }
