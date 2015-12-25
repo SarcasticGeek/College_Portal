@@ -11,8 +11,8 @@ if (isset($_POST['whichupload'])) {
 		      $file_name = $_FILES['fileToUpload']['name'];
 		      $file_size =$_FILES['fileToUpload']['size'];
 		      $file_tmp =$_FILES['fileToUpload']['tmp_name'];
-		      $file_ext=strtolower(end(explode('.',$_FILES['fileToUpload']['name'])));
-		      
+		      //$file_ext=strtolower(end(explode('.',$_FILES['fileToUpload']['name'])));
+		      $file_ext = pathinfo($_FILES['fileToUpload']['name'])['extension'];
 		      $expensions= array("pdf");
 		      
 		      if(in_array($file_ext,$expensions)=== false){
@@ -59,7 +59,8 @@ if (isset($_POST['whichupload'])) {
 		      $file_name = $_FILES['fileToUpload']['name'];
 		      $file_size =$_FILES['fileToUpload']['size'];
 		      $file_tmp =$_FILES['fileToUpload']['tmp_name'];
-		      $file_ext=strtolower(end(explode('.',$_FILES['fileToUpload']['name'])));
+		      $file_ext = pathinfo($_FILES['fileToUpload']['name'])['extension'];
+		      //$file_ext=strtolower(end(explode('.',$_FILES['fileToUpload']['name'])));
 		      
 		      $expensions= array("pdf");
 		      
@@ -97,7 +98,8 @@ if (isset($_POST['whichupload'])) {
 		      $file_name = $_FILES['fileToUpload']['name'];
 		      $file_size =$_FILES['fileToUpload']['size'];
 		      $file_tmp =$_FILES['fileToUpload']['tmp_name'];
-		      $file_ext=strtolower(end(explode('.',$_FILES['fileToUpload']['name'])));
+		      //$file_ext=strtolower(end(explode('.',$_FILES['fileToUpload']['name'])));
+		      $file_ext = pathinfo($_FILES['fileToUpload']['name'])['extension'];
 		      
 		      $expensions= array("pdf");
 		      
