@@ -15,7 +15,7 @@
                   </div>
         <form class="form-horizontal" role="form"  action="../upload.php" method="post" enctype="multipart/form-data">
                   <input type="hidden" name="whichupload" value="tutorial">
-          <input type="hidden" name="course_id" value="<?= $Course_id ?>">
+          <input type="hidden" name="course_id" value="<?= $course_id ?>">
 
            <div class="form-group">
                     <div class="col-sm-12">
