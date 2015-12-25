@@ -34,10 +34,10 @@ class Persons
      
         //array_push($ids,$row['id'])
         
-        echo "student name is ".$student_name;
+        //echo "student name is ".$student_name;
         
         //header('Location: studenthome.php');
-      
+        return array("id" => $student_id ,"isStudentorNot" =>1);
   
   
 
@@ -52,8 +52,9 @@ class Persons
         $stuff_id = $linexx['p_id'];
         $stuff_name = $line['fname'];
 
-       echo "stuff id is ".$stuff_name;
+       //echo "stuff id is ".$stuff_name;
         //header('Location: index.php');
+        return array("id" => $stuff_id ,"isStudentorNot" =>0);
       }
     }
   }
@@ -61,7 +62,7 @@ class Persons
 else
 {
   
-  echo "Email or password is incorrect";
+  return NULL;
 }
 }
 }

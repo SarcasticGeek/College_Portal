@@ -9,9 +9,8 @@ if ( logged_in() ) {
         header("Location:stuff");
   }
 }
-$_SESSION['person_id'] = 1;
-$_SESSION['studentOrNot'] = 1;
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -73,7 +72,7 @@ $_SESSION['studentOrNot'] = 1;
           </div>
           <div class="col-md-8">
             <h1>Login</h1>
-            <form class="form-horizontal" role="form" style="opacity: 0.5;">
+            <form class="form-horizontal" role="form" style="opacity: 0.5" action = "../controllers/loginController.php" method = "post">
               <div class="form-group">
                 <div class="col-sm-2">
                   <label for="inputEmail3" class="control-label">Email</label>
@@ -101,8 +100,6 @@ $_SESSION['studentOrNot'] = 1;
         </div>
       </div>
     </div>
-
-
 
 </body>
 </html>
