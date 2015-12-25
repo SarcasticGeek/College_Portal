@@ -86,14 +86,50 @@ if ( logged_in() ) {
      {
         foreach ($courses_id as $course_id) {
             $messages = Stuff::getMessages($course_id);
+
             //$studen_name = Persons::get_name($course_id);
             foreach ($messages as $message) {
                 
-
-                $question=$message['question'];
+              $s_id = $message['student_id'];
+              $name = Persons::get_name($s_id);
+              $question=$message['question'];
               echo  '<div class="new">';
-                echo'<h5 >'.$question. ' <a type="link" class="primary" data-toggle="modal" data-target="#ToStuff">Answer</a></h5>';
+              echo'<h5 >'.$question. ' <a type="link" class="primary" data-toggle="modal" data-target="#ToStuff">Answer</a></h5>';
               echo  '</div>';
+              echo'<div class="modal fade" id="ToStuff" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">';
+              echo'<div class="modal-dialog" role="document">';
+              echo'<div class="modal-content">';
+              echo'<div class="modal-header">';
+              echo'<button type="button" class="close" data-dismiss="modal" aria-label="Close">';
+              echo'<span aria-hidden="true">×</span>';
+              echo'</button>';
+              echo'<h4 class="modal-title" id="myModalLabel" style="color:black;">Answer to Question : '.$question.' By '.$name.'</h4>';
+              echo'</div>';
+              echo'<div class="modal-body">';
+
+              echo'<form class="form-horizontal" role="form" action="../../controllers/stuff_message.php" method ="post" >';
+              echo'<input type = "hidden" name ="question" value = "'.$question.'">';
+              echo'<input type = "hidden" name ="s_id" value = "'.$s_id.'">';
+              echo'<input type = "hidden" name ="c_id" value = "'.$course_id.'">';
+              echo'<div class="form-group">';
+          
+              echo'<div class="col-sm-2">';
+              echo'<label for="inputPassword3" class="control-label">Answer</label>';
+              echo'</div>';
+              echo'<div class="col-sm-8">';
+              echo'<textarea class="form-control" name="answer" id="inputPassword3" placeholder="Put your Answer here"></textarea>';
+              echo'</div>';
+              echo'</div>';
+                      echo'<div class="form-group">';
+                        echo'<div class="col-sm-offset-2 col-sm-10">';
+                        echo'<button type="submit" class="btn btn-default">Answer</button>';
+                        echo'</div>';
+                      echo'</div>';
+                    echo'</form>';
+                  echo'</div>';
+echo'</div>';
+echo'</div>';
+echo'</div>';
 
             }
             
@@ -110,34 +146,5 @@ if ( logged_in() ) {
   }
 
 ?> 
-<div class="modal fade" id="ToStuff" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-              <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">×</span>
-                    </button>
-                    <h4 class="modal-title" id="myModalLabel" style="color:black;">Answer to Student: Kashif</h4>
-                  </div>
-                  <div class="modal-body">
-                    <form class="form-horizontal" role="form" action="send.php" >
-                      <div class="form-group">
-          
-                        <div class="col-sm-2">
-                          <label for="inputPassword3" class="control-label">Answer</label>
-                        </div>
-                        <div class="col-sm-8">
-                          <textarea class="form-control" name="answer" id="inputPassword3" placeholder="Put your passwrod here"></textarea>
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <div class="col-sm-offset-2 col-sm-10">
-                          <button type="submit" class="btn btn-default">Answer</button>
-                        </div>
-                      </div>
-                    </form>
-                  </div>
- </div>
- </div>
- 
+
 </body></html>

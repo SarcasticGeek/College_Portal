@@ -207,11 +207,11 @@ class Stuff
         }
     }
 
-    public static function answer($id,$sd_id,$question,$date,$answer)
+    public static function answer($id,$sd_id,$question,$answer)
     {
         global $conn;
-        $sql = "UPDATE ask SET answer='$answer' WHERE t_id='$id' AND s_id = '$sd_id'
-                AND  question = '$question' AND created_at = '$date'";
+        $sql = "UPDATE ask SET answer='$answer' WHERE c_id=$id AND s_id = $sd_id
+                AND  question = '$question'";
         if ($conn->query($sql) === TRUE) {
             return true;
         } else {
