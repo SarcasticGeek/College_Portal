@@ -10,7 +10,7 @@
 
 
 <!---uploader -->
-<?php  $Course_code= "CSE520" ; 
+<?php  $Course_id= 1 ; 
                 ?>
   <li role="presentation" id="UploadingOfdeliverable">
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example0-modal-sm">   <span class="glyphicon glyphicon-plus-sign" aria-hidden="false"></span> Add deliverable</button>
@@ -26,7 +26,7 @@
                 <form class="form-horizontal" role="form"  action="../upload.php" method="get" enctype="multipart/form-data">
                   <div class="form-group">
                   <input type="hidden" name="whichupload" value="deliverable">
-                  <input type="hidden" name="course_code" value="<?= $Course_code ?>">
+                  <input type="hidden" name="course_id" value="<?= $Course_id ?>">
                     <div class="col-sm-12">
                       <input type="file" id="fileToUpload" class="form-control" name="fileToUpload">
                     </div>

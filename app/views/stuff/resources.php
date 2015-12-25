@@ -1,4 +1,4 @@
-<?php  $Course_code= "CSE520" ; ?>
+<?php  $Course_id= 1 ; ?>
 <!---uploader -->
 
 <div role="tabpanel" class="tab-pane active" id="Resources">
@@ -16,7 +16,7 @@
                   </div>
         <form class="form-horizontal" role="form" id="UploadingResources"  action="../upload.php" method="get" enctype="multipart/form-data">
           <input type="hidden" name="whichupload" value="resource">
-          <input type="hidden" name="course_code" value="<?= $Course_code ?>">
+          <input type="hidden" name="course_id" value="<?= $Course_id ?>">
 
           <div class="form-group">
             <div class="col-sm-12">

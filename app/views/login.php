@@ -10,7 +10,7 @@ if ( logged_in() ) {
   }
 }
 $_SESSION['person_id'] = 1;
-$_SESSION['studentOrNot'] = 0;
+$_SESSION['studentOrNot'] = 1;
 ?>
 <!DOCTYPE html>
 <html lang="en">

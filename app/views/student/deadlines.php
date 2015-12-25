@@ -3,7 +3,7 @@
               <br>
             </h2>
             <ul class="media-list">
-              <?php $deliverable_Name = "Assignment 1" ; $Course_code= "CSE520" ; $stud_id = 1 ;
+              <?php $deliverable_Name = "Assignment 1" ; $Course_id= 1; $Course_code = "CSE111"; $stud_id = 1 ;
                $link_delv = "http://localhost/college_portal/app/views/upload/res1.pdf";
                $deadline_delv = "10pm 30/12" ;
                $ay7aga = $deliverable_Name . $Course_code;
@@ -30,7 +30,7 @@
                                   </div>
                         <form class="form-horizontal" role="form" action="../upload.php" method="post" enctype="multipart/form-data">
                                           <input type="hidden" name="whichupload" value="deadline">
-                                          <input type="hidden" name="coursename" value="<?= $Course_code ?>">
+                                          <input type="hidden" name="courseid" value="<?= $Course_id ?>">
                                           <input type="hidden" name="deliverablename" value="<?= $deliverable_Name ?>">
                                           <input type="hidden" name="studentId" value="<?= $stud_id ?>">
 
