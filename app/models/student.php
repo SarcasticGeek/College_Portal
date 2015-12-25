@@ -102,7 +102,7 @@ Class Student
 		}
     	else 
     	{
-    		return 0;
+    		return NULL;
 		}
 	}
 	public static function get_Resources_Ids($c_id)

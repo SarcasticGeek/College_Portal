@@ -1,8 +1,9 @@
 <?php 
 require_once '../session.php';
 include'../../models/student.php';
-              // require_once '../session.php';
-               include'../../models/course.php';
+// require_once '../session.php';
+include'../../models/course.php';
+include'../../models/deliverable.php';
 
 if ( logged_in() ) {
   $person_id = $_SESSION['person_id'];
