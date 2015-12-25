@@ -1,11 +1,15 @@
 <div class="col-md-4">
-<h2>Sheets</h2>
+<h2>Deliverables</h2>
 
 
 <ul class="nav nav-pills nav-stacked">
+    <?php
+
+    ?>
 <?php $deliverableIDOfstuff = 1 ; $deliverableNameOfstuff = "Report 1";?>
   <li role="presentation"><a href="deliverable.php?deliverable=<?= $deliverableIDOfstuff ?>"><?= $deliverableNameOfstuff ?></a></li>
- 
+
+
 
 
 

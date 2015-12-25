@@ -17,23 +17,40 @@ class Stuff
         }
 
     }
-        public static function get_Courses($id)
+    public static function get_Courses($id)
     {
         global $conn;
         $sql = "SELECT c_id FROM teach WHERE st_id ='$id'";
+        $result = $conn->query($sql) or die('Query failed: ' . mysql_error());
+        if ($result->num_rows > 0) {
+            $courses = array();
+            while ($row = $result->fetch_assoc()) {
+                array_push($courses, $row['c_id']);
+            }
+            return $courses;
+        } else {
+            return 0;
+        }
+    }
+
+    public static function get_Deliverables_Ids($id,$c_id)
+    {
+        global $conn;
+        $sql = "SELECT d_id FROM upload_d WHERE id = '$id' AND c_id ='$c_id'";
         $result = $conn->query($sql)or die('Query failed: ' . mysql_error());
         if ($result->num_rows > 0)
         {
-            $courses = array();
+            $d_ids = array();
             while($row = $result->fetch_assoc()) {
-                array_push($courses,$row['c_id']);
+                array_push($d_ids,$row['d_id']);
             }
-            return $courses;
+            return $d_ids;
         }
-        else 
+        else
         {
             return 0;
         }
+    }
 
     public static function get_phone($id)
     {

@@ -1,20 +1,12 @@
 <?php
-include $_SERVER["DOCUMENT_ROOT"] . "College_Portal/dbconnect.php";
-
-
+include $_SERVER["DOCUMENT_ROOT"] . "/College_Portal/dbconnect.php";
 class Persons
 {
-
 	public static function login($useremail,$userpassword) {
+
 		global $conn;
-
-    $query = "SELECT * FROM person WHERE email='$useremail'";
-    $result = $conn->query($query) or die('Query failed: ' . mysql_error());
-
-
-
-
-
+        $query = "SELECT * FROM person WHERE email='$useremail'";
+        $result = $conn->query($query) or die('Query failed: ' . mysql_error());
       if($result->num_rows >0)
 
 {
@@ -62,7 +54,6 @@ class Persons
 }
 else
 {
-  
   return NULL;
 }
 }

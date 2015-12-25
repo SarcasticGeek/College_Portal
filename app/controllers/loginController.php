@@ -1,6 +1,6 @@
 <?php
-include '../models/Persons.php';
-require_once '../views/session.php';
+include $_SERVER["DOCUMENT_ROOT"] . "/College_Portal/app/models/Persons.php";
+include $_SERVER["DOCUMENT_ROOT"] . "/College_Portal/app/views/session.php";
  if(isset($_POST["email"]) && isset($_POST["password"]))
  {
     $data = Persons::login($_POST["email"],$_POST["password"]);
