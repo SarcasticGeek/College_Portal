@@ -34,11 +34,11 @@ Class Student
     		return 0;
 		}
 	}
-	public static function ask($id,$t_id,$question)
+	public static function ask($id,$c_id,$question)
 	{
 		global $conn;
-		$sql = "INSERT INTO ask (s_id, t_id, question)
-		VALUES ('$id', '$t_id', '$question')";
+		$sql = "INSERT INTO ask (s_id, c_id, question)
+		VALUES ('$id', '$c_id', '$question')";
 		if ($conn->query($sql) === TRUE)
 		{
     		return TRUE;
