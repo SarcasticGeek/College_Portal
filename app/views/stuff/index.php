@@ -27,7 +27,6 @@ if ( logged_in() ) {
         <div class="row">
           <?php include 'deliverables.php'; ?>
  		<?php include 'headOfmain.php'; ?>
-    <?php include 'courses.php'; ?>
         </div>
       </div>
     </div>
