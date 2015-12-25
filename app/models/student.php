@@ -159,7 +159,7 @@ Class Student
 				echo"<br>";
 				echo date_format($current_date,"Y-m-d H:i:s");
 				echo"<br>";
-				if($date1<$current_date)
+				if($date1>$current_date)
 				{
 					$sql = "INSERT INTO submit (sd_id, c_id,d_id,ans_link)
 					VALUES ('$sd_id', '$c_id','$d_id', '$ans_link')";
@@ -174,7 +174,7 @@ Class Student
 				}
 				else
 				{
-					"Deadline Already Passed";
+					return"Deadline Already Passed";
 				}
 			}
 		}
