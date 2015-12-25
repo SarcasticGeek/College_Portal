@@ -223,5 +223,23 @@ class Stuff
         }
         else return NULL;
     }
+
+    public static function get_Email($id)
+    {
+        global $conn;
+        $sql = "SELECT email FROM person WHERE id ='$id'";
+        $result = $conn->query($sql)or die('Query failed: ' . mysql_error());
+        if ($result->num_rows > 0)
+        {
+            while($row = $result->fetch_assoc()) {
+                $email = $row['email'];
+                return $email;
+            }
+            
+        }
+        else 
+        {
+            return 0;
+        }
+    }
 }
-?>
