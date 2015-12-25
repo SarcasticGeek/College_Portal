@@ -17,6 +17,24 @@ class Stuff
         }
 
     }
+        public static function get_Courses($id)
+    {
+        global $conn;
+        $sql = "SELECT c_id FROM teach WHERE st_id ='$id'";
+        $result = $conn->query($sql)or die('Query failed: ' . mysql_error());
+        if ($result->num_rows > 0)
+        {
+            $courses = array();
+            while($row = $result->fetch_assoc()) {
+                array_push($courses,$row['c_id']);
+            }
+            return $courses;
+        }
+        else 
+        {
+            return 0;
+        }
+
     public static function get_phone($id)
     {
         global $conn;

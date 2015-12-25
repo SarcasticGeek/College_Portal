@@ -133,11 +133,10 @@ Class Student
 			while($row = $result->fetch_assoc()) {
 				$deadline = $row['deadline'];
 				date_default_timezone_set('Africa/Cairo');
-				$current_date = date('d/m/Y', time());
-				$format = "d/m/y";
+				$current_date = new DateTime('now');
+				$format = "Y-m-d";
 				$date1  = DateTime::createFromFormat($format, $deadline);
-				$date2  = DateTime::createFromFormat($format, $current_date);
-				if($date1<$date2)
+				if($date1<$current_date)
 				{
 					$sql = "INSERT INTO submit (sd_id, c_id,d_id,ans_link)
 					VALUES ('$sd_id', '$c_id','$d_id', '$ans_link')";
