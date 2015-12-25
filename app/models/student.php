@@ -1,5 +1,5 @@
 <?php
-include "../../dbconnect.php";
+include $_SERVER["DOCUMENT_ROOT"] . "College_Portal/dbconnect.php";
 Class Student
 {
 	public static function is_Student($id)
@@ -151,7 +151,7 @@ Class Student
 				}
 				else
 				{
-					"Deadline Already Passed"
+					"Deadline Already Passed";
 				}
 			}
 		}
@@ -162,4 +162,3 @@ Class Student
 		
 	}
 }
-?>

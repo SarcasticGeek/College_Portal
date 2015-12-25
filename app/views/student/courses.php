@@ -2,15 +2,17 @@
             <div class="btn-group btn-group-lg">
               <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Courses <span class="glyphicon glyphicon-chevron-down"></span></a>
               <ul class="dropdown-menu" role="menu">
-                <li>
-                  <a href="?course=cse112">CSE112</a>
-                </li>
-                <li>
-                  <a href="?course=cse113">CSE113</a>
-                </li>
-                <li>
-                  <a href="?course=cse115">CSE115</a>
-                </li>
+              <?php
+              
+               $courses = Student::get_Courses($_SESSION['person_id']);
+               foreach ($courses as $course) {
+                 $course_code = Course::get_name_code($course);
+                 $course_name = Course::get_name($course);
+                 echo"<li>";
+                 echo'<a href="?course='.$course_code.'">'.$course_name.'</a>';
+                 echo"</li>";
+               }
+              ?>
               </ul>
             </div>
             </div>

@@ -1,5 +1,5 @@
 <?php
-include '../../dbconnect.php';
+include $_SERVER["DOCUMENT_ROOT"] . "College_Portal/dbconnect.php";
 class Stuff
 {
     public static function is_stuff($id)
