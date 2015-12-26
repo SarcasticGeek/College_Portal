@@ -34,11 +34,16 @@ if (isset($_POST['whichupload'])) {
 		         $fileLink = "http://localhost/college_portal/app/views/upload/" . $file_name;
 		         $msgfromModel = Stuff::upload_resource($nameOfres,$fileLink,$discOfres,$typeOfres,$stuffId,$course_id);
 		         echo $msgfromModel;
+		         echo "page will be redirected after 5 seconds";
+		         header( "refresh:5;url=index.php" );
 		      }
 		      else{
 		      	echo "<pre>";
 		         print_r($errors);
 		         echo "</pre>";
+		         echo "page will be redirected after 5 seconds";
+		         header( "refresh:5;url=index.php" );
+
 		      }
 		   }		
 	}elseif ($_POST['whichupload'] == "tutorial") {
@@ -51,6 +56,8 @@ if (isset($_POST['whichupload'])) {
 		         $stuffId = $_SESSION['person_id'];
 		         $msgfromModel = Stuff::upload_resource($nameOfres,$filelink,$discOfres,$typeOfres,$stuffId,$course_id);
 		         echo $msgfromModel;
+		         echo "page will be redirected after 5 seconds";
+		         header( "refresh:5;url=index.php" );
 
 	}elseif ($_POST['whichupload'] == "deliverable") {
 		# INPUTS ?whichupload=deliverable&course_id=&fileToUpload=&name=&description=&type=homework&deadline=2015-12-29+00-00-00
@@ -84,11 +91,15 @@ if (isset($_POST['whichupload'])) {
 		         $fileLink = "http://localhost/college_portal/app/views/upload/" . $file_name;
 		         $msgfromModel = Stuff::upload_deliverable($nameOfres,$discOfres,$fileLink,$typeOfres,$deadline,$stuffId,$course_id);
 		         echo $msgfromModel;
+		         echo "page will be redirected after 5 seconds";
+		         header( "refresh:5;url=index.php" );
 		      }
 		      else{
 		         echo "<pre>";
 		         print_r($errors);
 		         echo "</pre>";
+		         echo "page will be redirected after 5 seconds";
+		         header( "refresh:5;url=index.php" );
 		      }
 		   }		
 	}elseif ($_POST['whichupload'] == "deadline") {
@@ -120,11 +131,15 @@ if (isset($_POST['whichupload'])) {
 		         $fileLink = "http://localhost/college_portal/app/views/upload/" . $file_name;
 		         $msgfromModel =  Student::submit_deliverable($studentId,$course_id,$deliverableid,$fileLink);
 		         echo $msgfromModel;
+		         echo "page will be redirected after 5 seconds";
+		         header( "refresh:5;url=index.php" );
 		      }
 		      else{
 		         echo "<pre>";
 		         print_r($errors);
 		         echo "</pre>";
+		         echo "page will be redirected after 5 seconds";
+		         header( "refresh:5;url=index.php" );
 		      }
 		   }
 	}
