@@ -6,6 +6,11 @@
               <?php
                $course_code = $_GET['course'];
                $course_id = Course::get_id($course_code);
+               if(is_null($course_id)){
+                header("Location:../login.php");
+                die();
+            }
+            else{
                $deliverable_ids = Student::get_Deliverables_Ids($_SESSION['person_id'],$course_id);
                if(!is_null($deliverable_ids))
                {
@@ -69,6 +74,7 @@
              {
               echo'<div class="alert alert-info" role="alert">No Deadlines Yet</div>';;
              }
+         }
                ?>         
             </ul>
           </div>
