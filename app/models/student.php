@@ -91,7 +91,7 @@ Class Student
 	{
 		global $conn;
 		$sql = "SELECT d_id FROM upload_d WHERE d_id NOT IN (
-			SELECT d_id FROM submit WHERE sd_id = '$sd_id' AND c_id = '$c_id')";
+			SELECT d_id FROM submit WHERE sd_id = '$sd_id')";
 		$result = $conn->query($sql)or die('Query failed: ' . mysql_error());
 		if ($result->num_rows > 0)
 		{

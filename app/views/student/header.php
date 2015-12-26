@@ -19,7 +19,7 @@
         <div class="collapse navbar-collapse" id="navbar-ex-collapse">
           <ul class="nav navbar-nav navbar-right">
             <li class="active">
-              <a href="#">Home of <?= $studemail ?></a>
+              <a href="../../">Home of <?= $studemail ?></a>
             </li>
             <li>
               <a href="../logout.php">Logout</a>

@@ -7,7 +7,11 @@
                $course_code = $_GET['course'];
                $course_id = Course::get_id($course_code);
                if(is_null($course_id)){
-                header("Location:../login.php");
+                header("Location:../
+
+
+
+                    login.php");
                 die();
             }
             else{
@@ -44,11 +48,11 @@
                  echo'</div>';
                  echo'<form class="form-horizontal" role="form" action="../upload.php" method="post" enctype="multipart/form-data">';
                  echo'<input type="hidden" name="whichupload" value="deadline">';
-                 echo'<input type="hidden" name="courseid" value=" '.$course_id.'>';
-                 echo'<input type="hidden" name="deliverableid" value=" '.$deliverable_id.' ">';
+                 echo'<input type="hidden" name="courseid" value="'.$course_id.'">';
+                 echo'<input type="hidden" name="deliverableid" value="'.$deliverable_id.'">';
                  echo'<input type="hidden" name="whichupload" value="deadline">';
-                 echo'<input type="hidden" name="courseid" value=" '.$course_id.' ">';
-                 echo'<input type="hidden" name="deliverableid" value=" '.$deliverable_id.'">';
+                 echo'<input type="hidden" name="courseid" value="'.$course_id.'">';
+                 echo'<input type="hidden" name="deliverableid" value="'.$deliverable_id.'">';
                  echo'<div class="form-group">';
                  echo'<div class="col-sm-12">';
                  echo'<input type="file" id="fileToUpload" class="form-control" name="fileToUpload">';

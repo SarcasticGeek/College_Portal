@@ -16,7 +16,7 @@
             <li class="active">
             <?php   $taemail = Stuff::get_Email($_SESSION['person_id']);?>
 
-              <a href="#">Home of <?= $taemail ?></a>
+              <a href="../../">Home of <?= $taemail ?></a>
             </li>
             <li >
               <a href="messages.php">Messages from students</a>
