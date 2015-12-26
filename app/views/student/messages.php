@@ -12,7 +12,15 @@
   		echo'<li class="list-group-item"><div class="panel panel-default">';
   		echo'<div class="panel-heading"><h4 class="text-primary">Question: '.$question.'</h4></div>';
   		echo'<div class="panel-body">';
-  		echo'<h5 >From '.$course_code.' Stuff : '.$answer.'</h5>';
+      if($answer != NULL)
+        {
+          echo'<h5 >From '.$course_code.' Stuff : '.$answer.'</h5>';
+        }
+        else
+        {
+          echo'<h5 >From '.$course_code.' Stuff : (No Answer yet)</h5>';
+        }
+  		
   		echo'</div>';
   		echo'</div>';
   		echo'</li>';
